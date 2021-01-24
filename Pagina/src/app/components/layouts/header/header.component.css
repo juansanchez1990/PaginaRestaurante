@@ -1,0 +1,17 @@
+.Relleno {
+    background-color: white;
+    border-radius: 100px;
+}
+
+.Logo {
+    width: 300px;
+    height: auto;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .Logo {
+        width: 150px;
+        height: auto;
+        margin-top: -20px;
+    }
+}

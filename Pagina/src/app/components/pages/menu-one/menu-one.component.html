@@ -1,0 +1,249 @@
+<app-header></app-header>
+<!-- Subheader Start -->
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('assets/img/subheader.jpg')">
+    <div class="container">
+        <div class="subheader-inner">
+            <h1>Menu v1</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Menu</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Menu v1</li>
+                </ol>
+            </nav>
+        </div>
+
+    </div>
+</div>
+<!-- Subheader End -->
+
+<!-- Menu Categories Start -->
+<div class="ct-menu-categories menu-filter">
+    <div class="container ">
+        <div class="menu-category-slider d-flex justify-content-center">
+            <a *ngFor="let departamentos of Departamentos | async" class="ct-menu-category-item m-3 ">
+                <div class="menu-category-thumb">
+                    <img [src]="departamentos.img" alt="category">
+                </div>
+                <div class="menu-category-desc">
+                    <h6>{{departamentos.Nombre}}</h6>
+                </div>
+            </a>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- Menu Categories End -->
+
+<!-- Menu Wrapper Start -->
+<div class="section section-padding">
+    <div class="container">
+
+        <div class="menu-container row">
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 pizzas">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Pepperoni</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">12.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 beverages desserts">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/13.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Rum With Soda</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">3.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 desserts">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/12.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Chocolate Cookies</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">4.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 pizzas offers">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/2.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Vegetarian</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">9.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 pasta">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/11.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Sea Food Pasta</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">14.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 beverages offers">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/10.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Russian Beer</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">14.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 pizzas">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/3.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Four Cheese</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">13.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 salads sides">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/15.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Ceaser Salad</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">10.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+            <!-- Product Start -->
+            <div class="col-lg-4 col-md-6 sides">
+                <div class="product">
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/14.png" alt="menu item" /> </a>
+                    <div class="product-body">
+                        <div class="product-desc">
+                            <h4> <a routerLink='/menu-item-v1'>Chicken Wrap</a> </h4>
+                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
+                            <p class="product-price">5.99$</p>
+                            <div class="favorite">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-controls">
+                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
+                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product End -->
+
+        </div>
+
+    </div>
+</div>
+<!-- Menu Wrapper End -->
+<app-footer></app-footer>
