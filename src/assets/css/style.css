@@ -1239,6 +1239,14 @@ table img {
     margin-top: -70px;
 }
 
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .navbar {
+        padding: 0;
+        height: 90px;
+        margin-top: -30px;
+    }
+}
+
 .main-header.can-sticky {
     position: sticky;
     top: 0;
