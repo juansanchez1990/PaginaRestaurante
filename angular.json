@@ -155,5 +155,8 @@
       }
     }
   },
-  "defaultProject": "Slices"
+  "defaultProject": "Slices",
+  "cli": {
+    "analytics": "49a043d0-4a62-4325-91b7-6850bf98380f"
+  }
 }
