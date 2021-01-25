@@ -3,23 +3,24 @@ import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Products } from '../interfaces/products';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  Productos: Observable<Products[]>;
-  private ProductosCollection: AngularFirestoreCollection<Products>;
+  public productos: Observable<any[]>;
 
   constructor(private readonly afs: AngularFirestore) { 
-    this.ProductosCollection = afs.collection<Products>('Productos');
-    this.getProductos();
+    this.productos = <Observable<any>> afs.collection('Productos').valueChanges(items => { 
+      return items.map(item => { 
+        return item;
+      })
+    });
+}
+    
   }
 
-  private getProductos(): void {
-    this.Productos = this.ProductosCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data() as Products))
-    );
-  }
-}
+  
+

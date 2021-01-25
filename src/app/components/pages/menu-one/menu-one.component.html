@@ -48,11 +48,11 @@
 
             <!-- Product Start -->
             <div class="col-lg-4 col-md-6 pizzas">
-                <div class="product" *ngFor="let productos of Productos | async">
+                <div class="product">
                     <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png" alt="menu item" /> </a>
                     <div class="product-body">
                         <div class="product-desc">
-                            <h4> <a routerLink='/menu-item-v1'>{{productos}}</a> </h4>
+                            <h4> <a routerLink='/menu-item-v1'>Pepperoni</a> </h4>
                             <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
                             <p class="product-price">12.99$</p>
                             <div class="favorite">
@@ -66,19 +66,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="card" style="width: 18rem;" *ngFor="let productos of Productos | async">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{productos}}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
             <!-- Product End -->
-
-
-
 
 
 

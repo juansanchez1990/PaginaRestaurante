@@ -11,12 +11,20 @@ import { async } from '@angular/core/testing';
 })
 export class MenuOneComponent implements OnInit {
 Departamentos= this.DepartamentosService.Departamentos;
-Productos= this.products.Productos;
+Productos :any[]
   constructor(private DepartamentosService: DepartamentosService, private storage: AngularFireStorage, private products: ProductsService) { }
 
   ngOnInit(): void {
-    console.log("Productos",this.Departamentos ) ;
+this.getProductos();
   }
 
 
+  
+getProductos()
+{
+  this.products.productos.subscribe(data=>{
+    this.Productos = data;
+    console.log("Productos",this.Productos);
+  })
+}
 }
