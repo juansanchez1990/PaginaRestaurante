@@ -45,16 +45,15 @@
     <div class="container">
 
         <div class="menu-container row">
-
             <!-- Product Start -->
-            <div class="col-lg-4 col-md-6 pizzas">
+            <div *ngFor="let product of Productos.slice(0 , 5)" class="col-lg-4 col-md-6 mt-3">
                 <div class="product">
-                    <a class="product-thumb" routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png" alt="menu item" /> </a>
+                    <a class="product-thumb" routerLink='/menu-item-v1'> <img [src]="product.Imagen" alt="menu item" /> </a>
                     <div class="product-body">
                         <div class="product-desc">
-                            <h4> <a routerLink='/menu-item-v1'>Pepperoni</a> </h4>
-                            <p>Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc</p>
-                            <p class="product-price">12.99$</p>
+                            <h4> <a routerLink='/menu-item-v1'>{{product.Nombre}}</a> </h4>
+                            <p>{{product.Descripcion}}</p>
+                            <!-- <p class="product-price">{{}}</p> -->
                             <div class="favorite">
                                 <i class="far fa-heart"></i>
                             </div>
@@ -67,21 +66,9 @@
                 </div>
             </div>
             <!-- Product End -->
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
-
     </div>
 </div>
+
 <!-- Menu Wrapper End -->
 <app-footer></app-footer>

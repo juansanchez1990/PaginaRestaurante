@@ -10,17 +10,25 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  public productos: Observable<any[]>;
 
-  constructor(private readonly afs: AngularFirestore) { 
-    this.productos = <Observable<any>> afs.collection('Productos').valueChanges(items => { 
-      return items.map(item => { 
-        return item;
-      })
-    });
-}
-    
+  public productos = new BehaviorSubject<Products[]>([]);
+
+
+  constructor(private afs: AngularFirestore) {
+    this.getProductos();
   }
 
-  
+
+
+
+
+  getProductos() {
+    return this.afs.collection('Productos').valueChanges().subscribe((items:any) => {
+      this.productos.next(items[0].Productos);
+    });
+  }
+
+}
+
+
 

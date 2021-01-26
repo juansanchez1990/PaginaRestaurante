@@ -3,6 +3,7 @@ import { DepartamentosService } from '../../../services/departamentos-service.se
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ProductsService } from '../../../services/products.service';
 import { async } from '@angular/core/testing';
+import { Products } from 'src/app/interfaces/products';
 
 @Component({
   selector: 'app-menu-one',
@@ -10,21 +11,19 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./menu-one.component.css']
 })
 export class MenuOneComponent implements OnInit {
-Departamentos= this.DepartamentosService.Departamentos;
-Productos :any[]
-  constructor(private DepartamentosService: DepartamentosService, private storage: AngularFireStorage, private products: ProductsService) { }
+  Departamentos = this.DepartamentosService.Departamentos;
+  Productos: Products[]
+  constructor(private DepartamentosService: DepartamentosService, private products: ProductsService) { }
 
   ngOnInit(): void {
-this.getProductos();
+    this.getProductos();
   }
 
 
-  
-getProductos()
-{
-  this.products.productos.subscribe(data=>{
-    this.Productos = data;
-    console.log("Productos",this.Productos);
-  })
-}
+
+  getProductos() {
+    this.products.productos.subscribe(data => {
+      this.Productos = data;
+    });
+  }
 }
