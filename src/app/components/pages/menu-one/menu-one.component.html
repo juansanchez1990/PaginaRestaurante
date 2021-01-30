@@ -19,48 +19,60 @@
 
 <!-- Menu Categories Start -->
 <div class="ct-menu-categories menu-filter">
-    <div class="container ">
-        <div class="menu-category-slider d-flex justify-content-center">
-            <a *ngFor="let departamentos of Departamentos | async" class="ct-menu-category-item m-3 ">
-                <div class="menu-category-thumb">
-                    <img [src]="departamentos.img" alt="category">
-                </div>
-                <div class="menu-category-desc">
-                    <h6>{{departamentos.Nombre}}</h6>
-                </div>
-            </a>
+    <div class="menu-category-slider d-flex justify-content-center">
+        <a *ngFor="let departamentos of Departamentos | async" class="ct-menu-category-item m-3 ">
+            <div class="menu-category-thumb">
+                <img [src]="departamentos.img" alt="category">
+            </div>
+            <div class="menu-category-desc">
+                <h6>{{departamentos.Nombre}}</h6>
+            </div>
+        </a>
 
 
 
 
 
 
-        </div>
     </div>
 </div>
-<!-- Menu Categories End -->
 
-<!-- Menu Wrapper Start -->
-<div class="section section-padding">
-    <div class="container">
 
-        <div class="menu-container row">
+
+<div class="d-flex justify-content-center">
+    <div class="container m-5 ">
+
+        <div class=" row ">
+
             <!-- Product Start -->
-            <div *ngFor="let product of Productos.slice(0 , 10)" class="col-lg-4 col-md-6 mt-3">
-                <div class="product">
-                    <a class="product-thumb" routerLink='/menu-item-v1'> <img [src]="product.Imagen" alt="menu item" /> </a>
-                    <div class="product-body">
-                        <div class="product-desc">
+
+            <div class="col-lg-4 col-md-12 " *ngFor="let product of Productos.slice(0 , 10) ">
+                <div class="product ">
+                    <a class="product-thumb " routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png " alt="menu item " /> </a>
+                    <div class="product-body ">
+                        <div class="product-desc ">
                             <h4> <a routerLink='/menu-item-v1'>{{product.Nombre}}</a> </h4>
                             <p>{{product.Descripcion}}</p>
-                            <!-- <p class="product-price">{{product.Size[Precio]}} -->
-                            <div class="favorite">
-                                <i class="far fa-heart"></i>
+                            <div class="btn-group m-4">
+                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Elija el tamaño
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </div>
+                            <p class="product-price ">12.99$</p>
+                            <div class="favorite ">
+                                <i class="far fa-heart "></i>
                             </div>
                         </div>
-                        <div class="product-controls">
-                            <a href="#" class="order-item btn-custom btn-sm shadow-none">Order <i class="fas fa-shopping-cart"></i> </a>
-                            <a href="#" class="btn-custom secondary btn-sm shadow-none" data-toggle="modal" data-target="#customizeModal"> Customize <i class="fas fa-plus"></i> </a>
+                        <div class="product-controls ">
+                            <a href="# " class="order-item btn-custom btn-sm shadow-none ">Ordenar <i class="fas fa-shopping-cart "></i> </a>
+                            <!-- <a href="# " class="btn-custom secondary btn-sm shadow-none " data-toggle="modal " data-target="#customizeModal "> Customize <i class="fas fa-plus "></i> </a> -->
                         </div>
                     </div>
                 </div>
@@ -69,6 +81,4 @@
         </div>
     </div>
 </div>
-
 <!-- Menu Wrapper End -->
-<app-footer></app-footer>
