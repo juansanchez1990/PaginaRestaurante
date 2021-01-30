@@ -11,6 +11,7 @@ import { Products } from 'src/app/interfaces/products';
   styleUrls: ['./menu-one.component.css']
 })
 export class MenuOneComponent implements OnInit {
+  counterValue =1;
   Departamentos = this.DepartamentosService.Departamentos;
   Productos: Products[]
   constructor(private DepartamentosService: DepartamentosService, private products: ProductsService) { }
@@ -25,6 +26,10 @@ export class MenuOneComponent implements OnInit {
     this.products.productos.subscribe(data => {
       this.Productos = data;
       console.log(data);
+    
     });
   }
+  sumProductos(){
+  }
+    
 }

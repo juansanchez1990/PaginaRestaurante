@@ -42,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { AngularCounterModule } from 'angular-input-counter';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +87,7 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     AngularFirestoreModule,
     AngularFireStorageModule,
     IvyCarouselModule,
+    AngularCounterModule,
 
     MatCarouselModule.forRoot(),
   ],

@@ -24,6 +24,7 @@
     "@angular/router": "~9.1.11",
     "@asymmetrik/ngx-leaflet": "^7.0.1",
     "@ngmodule/material-carousel": "^0.6.0",
+    "angular-input-counter": "^0.1.0",
     "angular-responsive-carousel": "^2.0.2",
     "firebase": "^7.0 || ^8.0",
     "leaflet": "^1.6.0",
