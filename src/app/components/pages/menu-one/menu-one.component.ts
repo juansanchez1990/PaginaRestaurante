@@ -24,6 +24,7 @@ export class MenuOneComponent implements OnInit {
   getProductos() {
     this.products.productos.subscribe(data => {
       this.Productos = data;
+      console.log(data);
     });
   }
 }

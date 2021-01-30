@@ -46,14 +46,14 @@
 
         <div class="menu-container row">
             <!-- Product Start -->
-            <div *ngFor="let product of Productos.slice(0 , 5)" class="col-lg-4 col-md-6 mt-3">
+            <div *ngFor="let product of Productos.slice(0 , 10)" class="col-lg-4 col-md-6 mt-3">
                 <div class="product">
                     <a class="product-thumb" routerLink='/menu-item-v1'> <img [src]="product.Imagen" alt="menu item" /> </a>
                     <div class="product-body">
                         <div class="product-desc">
                             <h4> <a routerLink='/menu-item-v1'>{{product.Nombre}}</a> </h4>
                             <p>{{product.Descripcion}}</p>
-                            <!-- <p class="product-price">{{}}</p> -->
+                            <!-- <p class="product-price">{{product.Size[Precio]}} -->
                             <div class="favorite">
                                 <i class="far fa-heart"></i>
                             </div>
