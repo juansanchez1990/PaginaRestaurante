@@ -43,6 +43,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularCounterModule } from 'angular-input-counter';
+
 @NgModule({
   declarations: [
     AppComponent,

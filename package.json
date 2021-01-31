@@ -26,7 +26,7 @@
     "@ngmodule/material-carousel": "^0.6.0",
     "angular-input-counter": "^0.1.0",
     "angular-responsive-carousel": "^2.0.2",
-    "firebase": "^7.0 || ^8.0",
+    "firebase": "^8.2.5",
     "leaflet": "^1.6.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
