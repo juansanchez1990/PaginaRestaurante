@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../../../services/login.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [LoginService]
 })
 export class RegisterComponent implements OnInit {
-
-  constructor() { }
+  registerForm = new FormGroup({
+    nombre: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+  })
+  constructor(private authLoginRegister: LoginService) { }
 
   ngOnInit(): void {
+  }
+  onRegister(){
+    const {email, password}=this.registerForm.value;
+    this.authLoginRegister.register(email, password)
   }
 
 }

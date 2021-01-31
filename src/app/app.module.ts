@@ -43,6 +43,10 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularCounterModule } from 'angular-input-counter';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 
 @NgModule({
   declarations: [
@@ -89,6 +93,9 @@ import { AngularCounterModule } from 'angular-input-counter';
     AngularFireStorageModule,
     IvyCarouselModule,
     AngularCounterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFireAuthModule,
 
     MatCarouselModule.forRoot(),
   ],

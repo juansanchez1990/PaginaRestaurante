@@ -29,6 +29,9 @@ const routes: Routes = [
     path:'',component:HomeComponent
   },
   {
+    path:'home',component:HomeComponent
+  },
+  {
     path:'home-v2',component:HomeTwoComponent
   },
   {

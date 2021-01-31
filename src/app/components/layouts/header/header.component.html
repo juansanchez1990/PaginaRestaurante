@@ -75,8 +75,21 @@
                 </div>
 
                 <ul class="top-header-nav header-cta ">
-                    <li>
+                    <li *ngIf="!IsLogged">
+
                         <a routerLink='/login'> <i class="fas fa-user m-2"></i> INGRESE CON SU USUARIO </a>
+                    </li>
+                </ul>
+                <ul class="top-header-nav header-cta ">
+                    <li *ngIf="IsLogged">
+
+                        <a (click)="onLogout()" style="text-decoration: white; cursor: pointer;"> <i class="fas fa-user-times m-2"></i> Cerrar Sesión </a>
+                    </li>
+                </ul>
+                <ul class="top-header-nav header-cta ">
+                    <li *ngIf="IsLogged">
+
+                        <a> <i class="fas fa-user m-2"></i>Bienvenido {{user.email}} </a>
                     </li>
                 </ul>
 
