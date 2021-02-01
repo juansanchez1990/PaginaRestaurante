@@ -28,7 +28,9 @@
     "angular-responsive-carousel": "^2.0.2",
     "firebase": "^8.2.5",
     "leaflet": "^1.6.0",
+    "ngx-toastr": "^13.2.0",
     "rxjs": "~6.5.4",
+    "sweetalert2": "^10.14.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

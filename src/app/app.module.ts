@@ -44,6 +44,7 @@ import { environment } from '../environments/environment';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { AngularCounterModule } from 'angular-input-counter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
@@ -98,6 +99,11 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password/forg
     ReactiveFormsModule,
     FormsModule,
     AngularFireAuthModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
 
     MatCarouselModule.forRoot(),
   ],

@@ -45,7 +45,8 @@
 
             <!-- Product Start -->
 
-            <div class="col-lg-4 col-md-12 " *ngFor="let product of Productos.slice(0 , 10) ">
+            <div class="col-lg-4 col-md-12 " *ngFor="let product of Productos ">
+
                 <div class="product ">
                     <a class="product-thumb " routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png " alt="menu item " /> </a>
                     <div class="product-body ">
@@ -75,8 +76,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Product End -->
         </div>
+        <!-- Product End -->
     </div>
 </div>
+
 <!-- Menu Wrapper End -->

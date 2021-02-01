@@ -14,7 +14,11 @@ export class MenuOneComponent implements OnInit {
   counterValue =1;
   Departamentos = this.DepartamentosService.Departamentos;
   Productos: Products[];
-
+  MostrarBebidasCalientes: boolean;
+  MostrarBebidasFrias: boolean;
+  MostrarDesayunos: boolean;
+  MostrarComidas: boolean;
+  MostrarPostres: boolean;
   constructor(private DepartamentosService: DepartamentosService, private products: ProductsService) { }
 
   ngOnInit(): void {

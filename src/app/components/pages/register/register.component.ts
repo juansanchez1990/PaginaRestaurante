@@ -10,7 +10,7 @@ import { LoginService } from '../../../services/login.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
-    nombre: new FormControl(''),
+    nombre: new FormControl(),
     email: new FormControl(''),
     password: new FormControl(''),
   })

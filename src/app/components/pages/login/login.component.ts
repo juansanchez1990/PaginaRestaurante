@@ -34,13 +34,14 @@ export class LoginComponent implements OnInit {
     const {email, password} = this.loginForm.value
     try{ 
       const user= await this.authLoginRegister.Login(email,password);
-    
+   
       if (user ){
         this.router.navigate(['/home'])
+    
       }
     } 
     catch(error){
-      console.log(error);
+ 
     }
    
    

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
+import { switchMap,map,mergeMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-header',
@@ -10,13 +12,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 public IsLogged = false;
+public IsLoggedGoogle = false;
 public user : any;
+public userG: any;
 
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
   async ngOnInit()  {
 
-  
+  console.log('userGoogle',this.userG);
      this.user  = await this.authLoginRegister.getCurrentUser();
     if (this.user ){
       this.IsLogged = true;
@@ -33,5 +37,9 @@ public user : any;
    
 
   }
+
+ 
+      
+    
 
 }

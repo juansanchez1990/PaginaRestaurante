@@ -1,17 +1,17 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import Swal from 'sweetalert2'
 
-import { Observable, of } from 'rxjs';
-import { first, switchMap } from 'rxjs/operators';
+
+import { first } from 'rxjs/operators';
 import firebase from 'firebase/app'
 // import { auth } from 'firebase/app';
 import {
   AngularFirestore,
-  AngularFirestoreDocument,
+
 } from '@angular/fire/firestore';
 import { User } from '../interfaces/user';
-import { async } from '@angular/core/testing';
 
 
 
@@ -28,6 +28,7 @@ public user: User;
 async loginGoogle(){
   try{
     this.afAuth.signInWithPopup(  new firebase.auth.GoogleAuthProvider())
+
   }
   catch(error){console.log(error);}
 }
@@ -36,11 +37,25 @@ async loginGoogle(){
 async Login(email: string, password: string){
   try{
     const result= await this.afAuth.signInWithEmailAndPassword(email, password);
-  return result;
+
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Bienvenido' ,
+      showConfirmButton: false,
+      timer: 1500
+    })
+    return result;
+  
     
   }
   catch(error){
-console.log(error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Datos Incorrectos',
+   
+    })
   }
 }
 async register(email: string, password: string){
@@ -76,4 +91,5 @@ async resetPassword(email: string): Promise<void> {
 getCurrentUser(){
 return this.afAuth.authState.pipe(first()).toPromise();
 }
+
 }
