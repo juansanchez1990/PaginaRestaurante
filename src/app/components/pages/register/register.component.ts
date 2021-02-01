@@ -14,13 +14,21 @@ export class RegisterComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   })
-  constructor(private authLoginRegister: LoginService) { }
+  constructor(private authLoginRegister: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  onRegister(){
-    const {email, password}=this.registerForm.value;
-    this.authLoginRegister.register(email, password)
+  async onRegister(){
+    const {email, password, nombre}=this.registerForm.value;
+    try{
+    
+   const user=   this.authLoginRegister.register(email, password);
+   if (user){
+this.router.navigate(['/home'])
+   }
+    }
+    catch(error){console.log(error);}
+
   }
 
 }

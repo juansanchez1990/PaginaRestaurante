@@ -1,4 +1,3 @@
-<app-header></app-header>
 <!-- Register Form Start -->
 <div class="section">
 
@@ -22,10 +21,7 @@
                 <h2>Sign Up</h2>
 
                 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" formControlName="nombre" />
-                    </div>
+
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" formControlName="email" />
@@ -36,8 +32,18 @@
                         <input type="password" class="form-control" formControlName="password" />
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                    Register
+                    Registrarse
                   </button>
+                    <div class="auth-seperator">
+                        <span>OR</span>
+                    </div>
+
+                    <div class="social-login">
+                        <button type="button" class="ct-social-login facebook"><i class="fab fa-facebook-f"></i> Continue with Facebook </button>
+                        <button type="button" class="ct-social-login google"><i class="fab fa-google"></i> Continue with Google</button>
+                    </div>
+
+                    <p>Ya tienes una cuenta? <a routerLink='/login'>Iniciar Sesión</a> </p>
                 </form>
             </div>
 

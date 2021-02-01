@@ -13,7 +13,8 @@ import { Products } from 'src/app/interfaces/products';
 export class MenuOneComponent implements OnInit {
   counterValue =1;
   Departamentos = this.DepartamentosService.Departamentos;
-  Productos: Products[]
+  Productos: Products[];
+
   constructor(private DepartamentosService: DepartamentosService, private products: ProductsService) { }
 
   ngOnInit(): void {
@@ -27,9 +28,11 @@ export class MenuOneComponent implements OnInit {
       this.Productos = data;
       console.log(data);
     
+    
     });
   }
   sumProductos(){
+ 
   }
     
 }

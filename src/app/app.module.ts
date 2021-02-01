@@ -46,6 +46,7 @@ import { AngularCounterModule } from 'angular-input-counter';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     MenuTwoComponent,
     ErrorComponent,
     HeaderFourComponent,
-    HeaderInnerComponent
+    HeaderInnerComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
