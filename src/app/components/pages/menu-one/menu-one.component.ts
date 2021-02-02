@@ -19,6 +19,8 @@ export class MenuOneComponent implements OnInit {
   MostrarDesayunos: boolean;
   MostrarComidas: boolean;
   MostrarPostres: boolean;
+  idCart: number;
+  productos: any;
   constructor(private DepartamentosService: DepartamentosService, private products: ProductsService) { }
 
   ngOnInit(): void {
@@ -35,8 +37,13 @@ export class MenuOneComponent implements OnInit {
     
     });
   }
-  sumProductos(){
- 
+  sumProductos(precio: number){
+
+  }
+
+  obtenerProducto(productos: Products){
+this.productos = productos
+console.log('Este es el producto',this.productos);
   }
     
 }

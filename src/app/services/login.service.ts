@@ -40,8 +40,8 @@ async Login(email: string, password: string){
 
     Swal.fire({
       position: 'center',
-      icon: 'success',
-      title: 'Bienvenido' ,
+      icon: 'success' ,
+      title: 'Bienvenido  ' ,
       showConfirmButton: false,
       timer: 1500
     })

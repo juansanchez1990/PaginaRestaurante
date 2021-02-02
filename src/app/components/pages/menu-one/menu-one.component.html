@@ -63,14 +63,15 @@
 
                                 </div>
                             </div>
+                            <div (click)="sumProductos(product.Size[0]?.Precio)"></div>
                             <angular-input-counter class="m-5" [min]="1" [max]="20" [step]="1" [readonly]="true" [(counterValue)]="counterValue" [color]="'primary'"></angular-input-counter>
                             <p class="product-price ">Lps. {{product.Size[0]?.Precio}}</p>
                             <div class="favorite ">
                                 <i class="far fa-heart "></i>
                             </div>
                         </div>
-                        <div class="product-controls ">
-                            <a href="# " class="order-item btn-custom btn-sm shadow-none ">Ordenar <i class="fas fa-shopping-cart "></i> </a>
+                        <div class="product-controls " (click)="obtenerProducto(product)">
+                            <a class="order-item btn-custom btn-sm shadow-none ">Ordenar <i class="fas fa-shopping-cart "></i> </a>
                             <!-- <a href="# " class="btn-custom secondary btn-sm shadow-none " data-toggle="modal " data-target="#customizeModal "> Customize <i class="fas fa-plus "></i> </a> -->
                         </div>
                     </div>
