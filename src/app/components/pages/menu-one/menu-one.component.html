@@ -19,7 +19,7 @@
 <!-- Menu Categories Start -->
 <div class="ct-menu-categories menu-filter">
     <div class="menu-category-slider d-flex justify-content-center">
-        <a *ngFor="let departamentos of Departamentos | async" class="ct-menu-category-item m-3 ">
+        <a (click)="seleccionarDepartamento(departamentos)" *ngFor="let departamentos of Departamentos" class="ct-menu-category-item m-3 ">
             <div class="menu-category-thumb">
                 <img [src]="departamentos.img" alt="category">
             </div>
@@ -27,12 +27,6 @@
                 <h6>{{departamentos.Nombre}}</h6>
             </div>
         </a>
-
-
-
-
-
-
     </div>
 </div>
 
@@ -45,7 +39,7 @@
 
             <!-- Product Start -->
 
-            <div class="col-lg-4 col-md-12 " *ngFor="let product of Productos ">
+            <div class="col-lg-4 col-md-12 " *ngFor="let product of getProductosPorDepartamento() ">
 
                 <div class="product ">
                     <a class="product-thumb " routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png " alt="menu item " /> </a>
@@ -53,16 +47,15 @@
                         <div class="product-desc ">
                             <h4> <a routerLink='/menu-item-v1'>{{product.Nombre}}</a> </h4>
                             <p>{{product.Descripcion}}</p>
-                            <div class="btn-group m-4">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Elija el tamaño
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">{{product.Size[0]?.Size}}</a>
-                                    <a class="dropdown-item" href="#">{{product.Size[1]?.Size}}</a>
 
-                                </div>
-                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Tamaños</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option *ngFor="let size of product.Size">{{size.Size}}</option>
+                                </select>
+                              </div>
+
+
                             <div (click)="sumProductos()"></div>
                             <angular-input-counter class="m-5" [min]="1" [max]="20" [step]="1" [readonly]="true" [(counterValue)]="counterValue" [color]="'primary'"></angular-input-counter>
                             <p class="product-price ">Lps. {{product.Size[0]?.Precio}}</p>

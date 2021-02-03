@@ -26,6 +26,14 @@ conteoPedidos: number= 0;
       this.IsLogged = true;
     console.log(this.user);
     }
+
+    this.authLoginRegister.IsLogged.subscribe(data=>{
+      this.IsLogged = data;
+    });
+
+    this.authLoginRegister.userInfo.subscribe(data=>{
+      this.user = data;
+    });
    
   }
 
