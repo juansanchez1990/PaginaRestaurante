@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
-import { switchMap,map,mergeMap } from 'rxjs/operators';
 
 
 @Component({
@@ -15,6 +14,7 @@ public IsLogged = false;
 public IsLoggedGoogle = false;
 public user : any;
 public userG: any;
+conteoPedidos: number= 0;
 
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 

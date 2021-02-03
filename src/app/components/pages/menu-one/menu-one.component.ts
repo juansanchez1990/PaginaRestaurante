@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { DepartamentosService } from '../../../services/departamentos-service.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ProductsService } from '../../../services/products.service';
 import { async } from '@angular/core/testing';
 import { Products } from 'src/app/interfaces/products';
+import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-menu-one',
@@ -11,6 +12,7 @@ import { Products } from 'src/app/interfaces/products';
   styleUrls: ['./menu-one.component.css']
 })
 export class MenuOneComponent implements OnInit {
+  @Output() SumarCarrito = new EventEmitter();
   counterValue =1;
   Departamentos = this.DepartamentosService.Departamentos;
   Productos: Products[];
@@ -32,18 +34,38 @@ export class MenuOneComponent implements OnInit {
   getProductos() {
     this.products.productos.subscribe(data => {
       this.Productos = data;
-      console.log(data);
+    
     
     
     });
   }
-  sumProductos(precio: number){
+  sumProductos(){
 
+this.counterValue = this.counterValue + 1;
   }
 
-  obtenerProducto(productos: Products){
-this.productos = productos
-console.log('Este es el producto',this.productos);
+  restarProducto(){
+    if (this.counterValue - 1 <0){
+      this.counterValue = 0;
+    }
+    else{
+      this.counterValue = this.counterValue -1;
+    }
   }
+
+  aggToCart(traerProducto: Products){
+  this.productos = traerProducto
+    if (this.counterValue>0){
+    let ProductosListo= {
+      "ProductoItem":traerProducto,
+      "CantidadOrdenada": this.counterValue
+    }
+    console.log('Este es el producto',this.productos);
+    this.counterValue = 1;
+    this.SumarCarrito.emit(ProductosListo);
+  }
+}
+
+
     
 }

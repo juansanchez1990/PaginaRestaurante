@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import Swal from 'sweetalert2'
 
+import { ToastrService } from 'ngx-toastr';
 
 import { first } from 'rxjs/operators';
 import firebase from 'firebase/app'
@@ -20,7 +21,7 @@ import { User } from '../interfaces/user';
 })
 export class LoginService {
 public user: User;
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore) { 
+  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore,    private toastr: ToastrService,) { 
 
     
   }
@@ -41,7 +42,7 @@ async Login(email: string, password: string){
     Swal.fire({
       position: 'center',
       icon: 'success' ,
-      title: 'Bienvenido  ' ,
+      title: 'Bienvenido   ' ,
       showConfirmButton: false,
       timer: 1500
     })
