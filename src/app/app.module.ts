@@ -48,7 +48,12 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
+import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatFormFieldModule  } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -84,7 +89,8 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password/forg
     ErrorComponent,
     HeaderFourComponent,
     HeaderInnerComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -106,6 +112,10 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password/forg
     }),
 
     MatCarouselModule.forRoot(),
+    MatTabsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]

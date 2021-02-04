@@ -23,6 +23,7 @@ import { MenuItemOneComponent } from './components/pages/menu-item-one/menu-item
 import { MenuItemTwoComponent } from './components/pages/menu-item-two/menu-item-two.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
+import { PerfilComponent } from './components/pages/perfil/perfil.component';
 
 
 const routes: Routes = [
@@ -91,6 +92,9 @@ const routes: Routes = [
   },
   {
     path:'forgotPasswword',component:ForgotPasswordComponent
+  },
+  {
+    path:'perfil',component:PerfilComponent
   },
   {
     path:'**',component:ErrorComponent

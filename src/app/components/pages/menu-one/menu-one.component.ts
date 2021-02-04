@@ -78,7 +78,7 @@ export class MenuOneComponent implements OnInit {
       }
       console.log('Este es el producto', this.productos);
       this.counterValue = 1;
-      this.SumarCarrito.emit(ProductosListo);
+      // this.SumarCarrito.emit(ProductosListo);
     }
   }
 

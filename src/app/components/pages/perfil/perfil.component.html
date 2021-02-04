@@ -1,0 +1,43 @@
+<div class="container-fluid mt-5">
+    <mat-tab-group>
+        <!-- Perfil -->
+        <mat-tab class="mt-1" label="Perfil">
+            <form>
+                <h4>Datos de su perfil</h4>
+                <div class="mb-3 m-4">
+
+                    <label for="nombre" class="form-label">Su nombre</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 m-4">
+
+                    <label for="identidad" class="form-label">Su identidad</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 m-4">
+
+                    <label for="celular" class="form-label">Su celular</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+            </form>
+        </mat-tab>
+        <!-- Direcciones -->
+        <mat-tab class="mt-1" label="Direcciones">
+            <button class="btn btn-primary m-2" (click)="agregarCollapse()"><i class="fas fa-plus"></i> Agregar dirección</button>
+
+            <div *ngFor="let collapse of collapses; let i = index" [(ngModel)]="collapses">
+                <div class="input-group m-5">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Dirección </span>
+                    </div>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+        </mat-tab>
+        <!-- Recupera tu contraseña -->
+        <mat-tab class="mt-1" label="Recupera tu contraseña">
+
+            <app-forgot-password class="m-5"></app-forgot-password>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -41,7 +41,7 @@
 
             <div class="col-lg-4 col-md-12 " *ngFor="let product of getProductosPorDepartamento() ">
 
-                <div class="product ">
+                <div class="product animate__animated animate__bounceInUp  ">
                     <a class="product-thumb " routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png " alt="menu item " /> </a>
                     <div class="product-body ">
                         <div class="product-desc ">
@@ -53,7 +53,7 @@
                                 <select class="form-control" id="exampleFormControlSelect1">
                                   <option *ngFor="let size of product.Size">{{size.Size}}</option>
                                 </select>
-                              </div>
+                            </div>
 
 
                             <div (click)="sumProductos()"></div>
