@@ -23,7 +23,9 @@
         </mat-tab>
         <!-- Direcciones -->
         <mat-tab class="mt-1" label="Direcciones">
+            <h4>Sus direcciones</h4>
             <button class="btn btn-primary m-2" (click)="agregarCollapse()"><i class="fas fa-plus"></i> Agregar dirección</button>
+            <button class="btn btn-danger m-2"><i class="fas fa-trash-alt"></i> Eliminar</button>
 
             <div *ngFor="let collapse of collapses; let i = index" [(ngModel)]="collapses">
                 <div class="input-group m-5">

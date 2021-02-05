@@ -7,11 +7,13 @@ import { LoginService } from '../../../services/login.service';
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })
-export class ForgotPasswordComponent  {
+export class ForgotPasswordComponent implements OnInit {
 
   userEmail = new FormControl('');
   constructor(private authLoginRegister: LoginService, private router: Router) {}
+ngOnInit() {
 
+}
   async onReset() {
     try {
       const email = this.userEmail.value;

@@ -14,6 +14,7 @@ import {
 } from '@angular/fire/firestore';
 import { User } from '../interfaces/user';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 
@@ -24,6 +25,7 @@ export class LoginService {
   public user: User;
   public IsLogged = new BehaviorSubject(false);
   public userInfo = new BehaviorSubject(null);
+  public router: Router
   constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private toastr: ToastrService,) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
@@ -36,6 +38,13 @@ export class LoginService {
   async loginGoogle() {
     try {
       this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Bienvenido, click en Ok para continuar   ', 
+        showConfirmButton: true,
+        
+      });
     }
     catch (error) { console.log(error); }
   }
@@ -67,12 +76,26 @@ export class LoginService {
   }
   async register(email: string, password: string) {
     try {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Registro Exitoso   ',
+        showConfirmButton: false,
+        timer: 1500
+      });
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       return result;
+      
 
     }
     catch (error) {
-      console.log(error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Al parecer este correo ya esta registrado, inténtalo nuevamente',
+
+      })
+      this.router.navigate(['/login'])
     }
   }
 
@@ -82,7 +105,7 @@ export class LoginService {
       await this.afAuth.signOut();
     }
     catch (error) {
-      console.log(error);
+   
 
     }
   }

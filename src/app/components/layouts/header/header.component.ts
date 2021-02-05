@@ -20,7 +20,7 @@ conteoPedidos: number= 0;
 
   async ngOnInit()  {
 
-  console.log('userGoogle',this.userG);
+  
      this.user  = await this.authLoginRegister.getCurrentUser();
     if (this.user ){
       this.IsLogged = true;

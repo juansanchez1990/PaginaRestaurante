@@ -13,13 +13,15 @@ export class RegisterComponent implements OnInit {
     nombre: new FormControl(),
     email: new FormControl(''),
     password: new FormControl(''),
+
   })
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+ 
   }
   async onRegister(){
-    const {email, password, nombre}=this.registerForm.value;
+    const {email, password}=this.registerForm.value;
     try{
     
    const user=   this.authLoginRegister.register(email, password);
@@ -27,7 +29,9 @@ export class RegisterComponent implements OnInit {
 this.router.navigate(['/home'])
    }
     }
-    catch(error){console.log(error);}
+    catch(error){console.log(error);
+      this.router.navigate(['/login'])
+    }
 
   }
 

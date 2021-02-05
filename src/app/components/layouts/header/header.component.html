@@ -1,4 +1,6 @@
 <!-- Aside (Mobile Navigation) -->
+
+
 <aside class="main-aside">
     <a class="navbar-brand Logo " routerLink='/'> <img src="assets/img/logo.png" alt="logo"> </a>
 
@@ -87,7 +89,19 @@
                 </ul>
                 <ul class="top-header-nav header-cta ">
                     <li *ngIf="IsLogged">
-                        <a> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a>
+                        <!-- <a style=" cursor: pointer;"> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a> -->
+                        <div class="dropdown">
+                            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user?.email}}</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a routerLink='/perfil' class="dropdown-item">
+                                    <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
+                                </a>
+                                <a routerLink='/cart' class="dropdown-item">
+                                    <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i> </h5>
+                                </a>
+
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -176,4 +190,5 @@
     </div>
 
 </header>
+
 <!-- Header End -->
