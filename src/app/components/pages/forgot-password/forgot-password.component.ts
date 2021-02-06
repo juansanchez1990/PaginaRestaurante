@@ -13,6 +13,8 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private authLoginRegister: LoginService, private router: Router) {}
 ngOnInit() {
 
+  
+ 
 }
   async onReset() {
     try {
