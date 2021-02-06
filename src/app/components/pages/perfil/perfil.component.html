@@ -23,55 +23,7 @@
         </mat-tab>
         <!-- Direcciones -->
         <mat-tab class="mt-1" label="Direcciones">
-
-            <h4>Sus direcciones</h4>
-
-            <div class="Info">
-                <p>Nueva direccion</p>
-                <label>nombre</label>
-                <input type="text">
-                <label>direccion</label>
-                <textarea row="7"></textarea>
-                <button>AGREGAR</button>
-            </div>
-           
-            <div class="line">
-            </div>
-
-            <div class="direccionArea">
-                <button mat-icon-buttom class="direccionButoon">X</button>
-                <span class="titulo">titulo</span>
-                <p class="direccion">DIRECCION</p>
-            </div>
-            <div class="direccionArea">
-                <button mat-icon-buttom class="direccionButoon">X</button>
-                <span class="titulo">titulo</span>
-                <p class="direccion">DIRECCION</p>
-            </div>
-            <div class="direccionArea">
-                <button mat-icon-buttom class="direccionButoon">X</button>
-                <span class="titulo">titulo</span>
-                <p class="direccion">DIRECCION</p>
-            </div>
-
-
-
-
-
-
-
-
-            <button class="btn btn-primary m-2" (click)="agregarCollapse()"><i class="fas fa-plus"></i> Agregar dirección</button>
-            <button class="btn btn-danger m-2"><i class="fas fa-trash-alt"></i> Eliminar</button>
-
-            <div *ngFor="let collapse of collapses; let i = index" [(ngModel)]="collapses">
-                <div class="input-group m-5">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Dirección </span>
-                    </div>
-                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-            </div>
+            <app-direcciones class="m-5"></app-direcciones>
         </mat-tab>
         <!-- Recupera tu contraseña -->
         <mat-tab class="mt-1" label="Recupera tu contraseña">
