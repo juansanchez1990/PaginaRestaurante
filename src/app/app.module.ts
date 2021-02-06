@@ -56,6 +56,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DireccionesComponent } from './components/pages/direcciones/direcciones.component';
+import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +95,8 @@ import { DireccionesComponent } from './components/pages/direcciones/direcciones
     ForgotPasswordComponent,
     PerfilComponent,
     DireccionesComponent,
+    VerificarCorreoComponent,
+  
     
   ],
   imports: [

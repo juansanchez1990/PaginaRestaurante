@@ -10,7 +10,7 @@ import { LoginService } from '../../../services/login.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
-    nombre: new FormControl(),
+  
     email: new FormControl(''),
     password: new FormControl(''),
 
@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
     const { email, password } = this.registerForm.value;
     try {
 
-      const user = this.authLoginRegister.SignUp(email, password);
+ this.authLoginRegister.SignUp(email, password);
 
     }
     catch (error) {

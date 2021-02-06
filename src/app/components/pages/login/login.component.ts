@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
   private scrollContainer: any;
   constructor(private  authLoginRegister: LoginService, private router: Router) { }
  
-  ngOnInit(): void {
+  ngOnInit() {
+    document.querySelector('router-outlet').scrollTop = 0;
+
   }
 
  async onGoogleLogin(){

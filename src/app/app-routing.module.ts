@@ -24,6 +24,7 @@ import { MenuItemTwoComponent } from './components/pages/menu-item-two/menu-item
 import { ErrorComponent } from './components/pages/error/error.component';
 import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
 
 
 const routes: Routes = [
@@ -82,10 +83,10 @@ const routes: Routes = [
     path:'register',component:RegisterComponent
   },
   {
-    path:'menu-v1',component:MenuOneComponent
+    path:'VerificarCorreo',component:VerificarCorreoComponent
   },
   {
-    path:'menu-v2',component:MenuTwoComponent
+    path:'menu',component:MenuOneComponent
   },
   {
     path:'menu-item-v1',component:MenuItemOneComponent
