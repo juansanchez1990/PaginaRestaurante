@@ -25,9 +25,7 @@ export class LoginComponent implements OnInit {
  async onGoogleLogin(){
    try{
 
-     this.authLoginRegister.loginGoogle()
-
-     this.router.navigate(['/home'])
+     this.authLoginRegister.GoogleAuth()
    }
    catch(error){
      console.log(error);
@@ -37,12 +35,7 @@ export class LoginComponent implements OnInit {
   async onLogin(){
     const {email, password} = this.loginForm.value
     try{ 
-      const user= await this.authLoginRegister.Login(email,password);
-   
-      if (user ){
-        this.router.navigate(['/home'])
-    
-      }
+       this.authLoginRegister.SignIn(email,password);
     } 
     catch(error){
  

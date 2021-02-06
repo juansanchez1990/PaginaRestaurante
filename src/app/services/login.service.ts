@@ -1,5 +1,5 @@
 
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import Swal from 'sweetalert2'
 
@@ -9,7 +9,7 @@ import { first } from 'rxjs/operators';
 import firebase from 'firebase/app'
 // import { auth } from 'firebase/app';
 import {
-  AngularFirestore,
+  AngularFirestore, AngularFirestoreDocument,
 
 } from '@angular/fire/firestore';
 import { User } from '../interfaces/user';
@@ -22,104 +22,144 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginService {
-  public user: User;
-  public IsLogged = new BehaviorSubject(false);
-  public userInfo = new BehaviorSubject(null);
-  public router: Router
-  constructor(public afAuth: AngularFireAuth, private afs: AngularFirestore, private toastr: ToastrService,) {
-    this.afAuth.authState.subscribe(user => {
+
+  public userData$ = new BehaviorSubject<User>(null);
+  public isSessionActive$ = new BehaviorSubject<boolean>(false);
+  public isEmailVerifield$ = new BehaviorSubject<boolean>(false);
+
+
+  constructor(
+    private afs: AngularFirestore,
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private toastr: ToastrService,
+    private ngZone: NgZone, // NgZone service to remove outside scope warning
+  ) {
+    this.afAuth.authState.subscribe(async (user) => {
       if (user) {
-        this.IsLogged.next(true);
-        this.userInfo.next(user);
+        if (user.emailVerified === false) {
+          this.isEmailVerifield$.next(false);
+          this.startSession(user);
+          this.router.navigateByUrl('VerificarCorreo'); // componente de verificar
+        } else {
+          this.isEmailVerifield$.next(true);
+          this.startSession(user);
+          this.router.navigateByUrl(''); // poner nombre de ruta princila
+        }
+      }
+
+    })
+  }
+
+  async startSession(user) {
+    await this.getUserInfo(user.uid);
+    this.isSessionActive$.next(true);
+  }
+
+  getUserInfo(userUid) {
+    return this.afs.collection<User>('users').doc(userUid).valueChanges().pipe(first()).toPromise().then(userData => {
+      if (userData) {
+        this.userData$.next(userData);
       }
     });
   }
 
-  async loginGoogle() {
-    try {
-      this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Bienvenido, click en Ok para continuar   ', 
-        showConfirmButton: true,
-        
-      });
-    }
-    catch (error) { console.log(error); }
+  // Sign in with email/password
+  SignIn(email, password) {
+    return this.afAuth.signOut().then(() => {
+      this.afAuth.signInWithEmailAndPassword(email, password)
+        .then((result) => {
+          this.toastr.success('Bienvenido a tu supermercado');
+          this.SetUserData(result.user);
+        }).catch((error) => {
+          this.toastr.error('Credenciales Incorrectas', 'Error');
+        })
+    });
+
   }
 
-
-  async Login(email: string, password: string) {
-    try {
-      const result = await this.afAuth.signInWithEmailAndPassword(email, password);
-
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Bienvenido   ',
-        showConfirmButton: false,
-        timer: 1500
-      });
-      return result;
-
-
-    }
-    catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Datos Incorrectos',
-
+  // Sign up with email/password
+  SignUp(email, password) {
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
+      .then(async () => {
+        await this.SendVerificationMail();
+      }).catch((error) => {
+        this.toastr.error(error.message, 'Error');
       })
-    }
   }
-  async register(email: string, password: string) {
-    try {
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Registro Exitoso   ',
-        showConfirmButton: false,
-        timer: 1500
-      });
-      const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
-      return result;
-      
 
-    }
-    catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Al parecer este correo ya esta registrado, inténtalo nuevamente',
+  // Send email verfificaiton when new user sign up
+  async SendVerificationMail() {
+    return (await this.afAuth.currentUser).sendEmailVerification();
+  }
 
+  // Reset Forggot password
+  ForgotPassword(passwordResetEmail) {
+    return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        this.toastr.success('Se le mando un enlace por correo para cambiar su contraseña.');
+      }).catch((error) => {
+        this.toastr.error(error, 'Error');
       })
-      this.router.navigate(['/login'])
-    }
   }
 
-  async logout() {
-    try {
-      this.IsLogged.next(false);
-      await this.afAuth.signOut();
-    }
-    catch (error) {
-   
-
-    }
+  // Sign in with Google
+  GoogleAuth() {
+    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
   }
 
-  async resetPassword(email: string): Promise<void> {
-    try {
-      return this.afAuth.sendPasswordResetEmail(email);
-    } catch (error) {
-      console.log(error);
-    }
+  FacebookAuth() {
+    return this.AuthLogin(new firebase.auth.FacebookAuthProvider());
   }
 
-  getCurrentUser() {
-    return this.afAuth.authState.pipe(first()).toPromise();
+  // Auth logic to run auth providers
+  AuthLogin(provider) {
+    return this.afAuth.signInWithPopup(provider)
+      .then((result: any) => {
+        this.ngZone.run(() => {
+          this.toastr.success('Bienvenido a tu supermercado');
+        });
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        //hacer algo en error
+      });
   }
+
+  /* Setting up user data when sign in with username/password, 
+  sign up with username/password and sign in with social auth  
+  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+  SetUserData(user) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    this.afs.collection('users').doc(user.uid).valueChanges().pipe(first()).subscribe((data: User) => {
+      let userData: User;
+      if (data === null || data === undefined) {
+        userData = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+          emailVerified: user.emailVerified,
+          Direcciones: [],
+          NoCedula: null,
+          NoTelefono: null
+        };
+        return userRef.set(userData, {
+          merge: true
+        });
+      }
+    });
+
+  }
+
+  // Sign out 
+  SignOut() {
+    return this.afAuth.signOut().then(() => {
+      this.toastr.success('Te esperamos pronto');
+      this.router.navigateByUrl(''); // cambiar a donde se quiere ir despues de login
+      this.isSessionActive$.next(false);
+      this.userData$.next(null);
+    });
+  }
+
 
 }

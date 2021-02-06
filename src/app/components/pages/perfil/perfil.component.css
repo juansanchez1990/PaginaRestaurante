@@ -1,0 +1,38 @@
+.Info{
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.line{
+    margin-top: 35px;
+    margin-bottom: 35px;
+    border-top-style: solid;
+    border-color: blue;
+    border-width: 2px;
+}
+
+
+.direccionArea{
+    padding: 10px;
+    position: relative;
+    margin-top: 45px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width:1px;
+    border-color: red;
+}
+
+
+.direccionButoon{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    
+}
+.titulo{
+    font-weight: bold;
+}

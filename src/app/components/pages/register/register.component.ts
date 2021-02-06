@@ -18,19 +18,18 @@ export class RegisterComponent implements OnInit {
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
   ngOnInit() {
- 
+
   }
-  async onRegister(){
-    const {email, password}=this.registerForm.value;
-    try{
-    
-   const user=   this.authLoginRegister.register(email, password);
-   if (user){
-this.router.navigate(['/home'])
-   }
+  async onRegister() {
+    const { email, password } = this.registerForm.value;
+    try {
+
+      const user = this.authLoginRegister.SignUp(email, password);
+
     }
-    catch(error){console.log(error);
-      this.router.navigate(['/login'])
+    catch (error) {
+      console.log(error);
+
     }
 
   }

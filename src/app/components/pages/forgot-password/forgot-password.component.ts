@@ -10,16 +10,15 @@ import { LoginService } from '../../../services/login.service';
 export class ForgotPasswordComponent implements OnInit {
 
   userEmail = new FormControl('');
-  constructor(private authLoginRegister: LoginService, private router: Router) {}
-ngOnInit() {
-
-}
+  constructor(private authLoginRegister: LoginService, private router: Router) { }
+  ngOnInit() {
+    document.querySelector('router-outlet').scrollTop = 0;
+  }
   async onReset() {
     try {
       const email = this.userEmail.value;
-      await this.authLoginRegister.resetPassword(email);
-      window.alert('Email Enviado, Revisa tu bandeja de entrada!');
-      this.router.navigate(['/login']);
+      await this.authLoginRegister.ForgotPassword(email);
+
     } catch (error) {
       console.log(error);
     }
