@@ -40,7 +40,7 @@ export class LoginService {
         if (user.emailVerified === false) {
           this.isEmailVerifield$.next(false);
           this.startSession(user);
-          this.router.navigateByUrl('/VerificarCorreo'); // componente de verificar
+          this.router.navigateByUrl('/login');
         } else {
           this.isEmailVerifield$.next(true);
           this.startSession(user);
@@ -83,10 +83,11 @@ export class LoginService {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(async () => {
         await this.SendVerificationMail();
+     
         Swal.fire({
           position: 'center',
           icon: 'success',
-          title: 'Registro existoso',
+          title: 'Se envió un correo de verificación a su bandeja de entrada',
           showConfirmButton: false,
           timer: 1500
         })

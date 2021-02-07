@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
   ngOnInit() {
+    document.querySelector('router-outlet').scrollTop = 0;
 
   }
   async onRegister() {

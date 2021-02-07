@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verificar-correo',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerificarCorreoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  goToPage(){
+    this.router.navigateByUrl('/login');
   }
 
 }
