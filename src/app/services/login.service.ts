@@ -81,8 +81,9 @@ export class LoginService {
   // Sign up with email/password
   SignUp(email, password) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then(async () => {
+      .then(async (result) => {
         await this.SendVerificationMail();
+        this.SetUserData(result.user);
       }).catch((error) => {
         this.toastr.error(error.message, 'Error');
       })
