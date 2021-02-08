@@ -40,11 +40,11 @@ export class LoginService {
         if (user.emailVerified === false) {
           this.isEmailVerifield$.next(false);
           this.startSession(user);
-          this.router.navigateByUrl('VerificarCorreo'); // componente de verificar
+          this.router.navigateByUrl('/login');
         } else {
           this.isEmailVerifield$.next(true);
           this.startSession(user);
-          this.router.navigateByUrl(''); // poner nombre de ruta princila
+          this.router.navigateByUrl('/home'); // poner nombre de ruta princila
         }
       }
 
@@ -69,10 +69,10 @@ export class LoginService {
     return this.afAuth.signOut().then(() => {
       this.afAuth.signInWithEmailAndPassword(email, password)
         .then((result) => {
-          this.toastr.success('Bienvenido a tu supermercado');
+      
           this.SetUserData(result.user);
         }).catch((error) => {
-          this.toastr.error('Credenciales Incorrectas', 'Error');
+      
         })
     });
 
@@ -84,14 +84,29 @@ export class LoginService {
       .then(async (result) => {
         await this.SendVerificationMail();
         this.SetUserData(result.user);
+     
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Se envió un correo de verificación a su bandeja de entrada',
+          showConfirmButton: false,
+          timer: 1500
+        })
+
       }).catch((error) => {
-        this.toastr.error(error.message, 'Error');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Este correo ya está registrado',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
       })
   }
 
   // Send email verfificaiton when new user sign up
   async SendVerificationMail() {
     return (await this.afAuth.currentUser).sendEmailVerification();
+
   }
 
   // Reset Forggot password
@@ -155,8 +170,14 @@ export class LoginService {
   // Sign out 
   SignOut() {
     return this.afAuth.signOut().then(() => {
-      this.toastr.success('Te esperamos pronto');
-      this.router.navigateByUrl(''); // cambiar a donde se quiere ir despues de login
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Te esperamos pronto',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.router.navigateByUrl('/login'); // cambiar a donde se quiere ir despues de login
       this.isSessionActive$.next(false);
       this.userData$.next(null);
     });
