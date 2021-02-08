@@ -69,6 +69,10 @@ export class MenuOneComponent implements OnInit {
     }
   }
 
+  selectSize(size){
+    console.log(size)
+  }
+
   aggToCart(traerProducto: Products) {
     this.productos = traerProducto
     if (this.counterValue > 0) {

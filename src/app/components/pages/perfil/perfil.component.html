@@ -2,24 +2,25 @@
     <mat-tab-group>
         <!-- Perfil -->
         <mat-tab class="mt-1" label="Perfil">
-            <form>
+            <form [formGroup]="userForm">
                 <h4>Datos de su perfil</h4>
                 <div class="mb-3 m-4">
-
                     <label for="nombre" class="form-label">Su nombre</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input formControlName="Nombre" type="text" class="form-control" id="nombre" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3 m-4">
 
                     <label for="identidad" class="form-label">Su identidad</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input formControlName="NoIdentidad" type="text" class="form-control" id="identidad" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3 m-4">
 
                     <label for="celular" class="form-label">Su celular</label>
-                    <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input formControlName="NoTelefono" type="number" class="form-control" id="celular" aria-describedby="emailHelp">
                 </div>
             </form>
+
+            <button [disabled]="userForm.invalid" (click)="updateUserData()">Actualizar informacion</button>
         </mat-tab>
         <!-- Direcciones -->
         <mat-tab class="mt-1" label="Direcciones">
