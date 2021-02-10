@@ -38,36 +38,10 @@
         <div class=" row ">
 
             <!-- Product Start -->
-
             <div class="col-lg-4 col-md-12 " *ngFor="let product of getProductosPorDepartamento() ">
-
-                <div class="product animate__animated animate__bounceInUp  ">
-                    <a class="product-thumb " routerLink='/menu-item-v1'> <img src="assets/img/prods-sm/5.png " alt="menu item " /> </a>
-                    <div class="product-body ">
-                        <div class="product-desc ">
-                            <h4> <a routerLink='/menu-item-v1'>{{product.Nombre}}</a> </h4>
-                            <p>{{product.Descripcion}}</p>
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Tamaños</label>
-                                <select  (change)="selectSize($event)" class="form-control" id="exampleFormControlSelect1">
-                                  <option *ngFor="let size of product.Size">{{size.Size}}</option>
-                                </select>
-                            </div>
-                            <div (click)="sumProductos()"></div>
-                            <angular-input-counter class="m-5" [min]="1" [max]="20" [step]="1" [readonly]="true" [(counterValue)]="counterValue" [color]="'primary'"></angular-input-counter>
-                            <p class="product-price ">Lps. {{product.Size[0]?.Precio}}</p>
-                            <div class="favorite ">
-                                <i class="far fa-heart "></i>
-                            </div>
-                        </div>
-                        <div class="product-controls " (click)="aggToCart(product)">
-                            <a class="order-item btn-custom btn-sm shadow-none ">Ordenar <i class="fas fa-shopping-cart "></i> </a>
-                            <!-- <a href="# " class="btn-custom secondary btn-sm shadow-none " data-toggle="modal " data-target="#customizeModal "> Customize <i class="fas fa-plus "></i> </a> -->
-                        </div>
-                    </div>
-                </div>
+                <app-item [product]="product"></app-item>
             </div>
+            
         </div>
         <!-- Product End -->
     </div>

@@ -57,6 +57,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { DireccionesComponent } from './components/pages/direcciones/direcciones.component';
 import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
+import { ItemComponent } from './components/shared/item/item.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { VerificarCorreoComponent } from './components/pages/verificar-correo/ve
     PerfilComponent,
     DireccionesComponent,
     VerificarCorreoComponent,
+    ItemComponent,
   
     
   ],
