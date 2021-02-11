@@ -1,0 +1,22 @@
+<form [formGroup]="directionForm">
+    <div class="mb-3">
+        <label for="Titulo" class="form-label">Nombre de la dirección</label>
+        <input formControlName="Titulo" type="email" class="form-control" id="Titulo" placeholder="Escriba el nombre de su dirección aquí" aria-describedby="emailHelp">
+
+        <label for="Direccion">Descripción de la dirección</label>
+        <textarea formControlName="Direccion" class="form-control" placeholder="Escriba su dirección aquí" id="Direccion"></textarea>
+        <button (click)="addDireccion()" type="button" class="btn btn-danger m-2"><i class="fas fa-plus"></i> Añadir Dirección</button>
+    </div>
+</form>
+
+<div *ngFor="let direccion of User?.Direcciones" class="card">
+
+    <div class="card-header">
+        {{direccion.Titulo}}
+        <button (click)="deleteDirecction(direccion)" type="button" class="btn btn-warning btnDelete"> <i class="fas fa-trash-alt"></i> Eliminar</button>
+    </div>
+    <div class="card-body">
+       <p>{{direccion.Direccion}}</p>
+
+    </div>
+</div>

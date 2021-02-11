@@ -69,6 +69,10 @@ export class MenuOneComponent implements OnInit {
     }
   }
 
+  selectSize(size){
+    console.log(size)
+  }
+
   aggToCart(traerProducto: Products) {
     this.productos = traerProducto
     if (this.counterValue > 0) {
@@ -78,7 +82,7 @@ export class MenuOneComponent implements OnInit {
       }
       console.log('Este es el producto', this.productos);
       this.counterValue = 1;
-      this.SumarCarrito.emit(ProductosListo);
+      // this.SumarCarrito.emit(ProductosListo);
     }
   }
 

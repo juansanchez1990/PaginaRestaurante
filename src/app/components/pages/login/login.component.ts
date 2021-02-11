@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../services/login.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-login',
@@ -10,35 +11,33 @@ import { LoginService } from '../../../services/login.service';
   providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
+  
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
+  private scrollContainer: any;
   constructor(private  authLoginRegister: LoginService, private router: Router) { }
+ 
+  ngOnInit() {
+    document.querySelector('router-outlet').scrollTop = 0;
 
-
-  ngOnInit(): void {
   }
 
  async onGoogleLogin(){
    try{
 
-     this.authLoginRegister.loginGoogle()
-     this.router.navigate(['/home'])
+     this.authLoginRegister.GoogleAuth()
    }
    catch(error){
      console.log(error);
    }
   }
+  
   async onLogin(){
     const {email, password} = this.loginForm.value
     try{ 
-      const user= await this.authLoginRegister.Login(email,password);
-   
-      if (user ){
-        this.router.navigate(['/home'])
-    
-      }
+       this.authLoginRegister.SignIn(email,password);
     } 
     catch(error){
  
@@ -46,5 +45,8 @@ export class LoginComponent implements OnInit {
    
    
   }
+  
+
+
 
 }

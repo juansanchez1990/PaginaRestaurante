@@ -1,86 +1,67 @@
-<app-header-inner></app-header-inner>
- <!-- Subheader Start -->
- <div class="subheader dark-overlay dark-overlay-2" style="background-image: url('assets/img/subheader.jpg')">
+<!-- Subheader Start -->
+<div class="subheader dark-overlay dark-overlay-2" style="background-image: url('assets/img/subheader.jpg')">
     <div class="container">
-      <div class="subheader-inner">
-        <h1>Checkout</h1>
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
-          </ol>
-        </nav>
-      </div>
+        <div class="subheader-inner">
+            <h1>Checkout</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                </ol>
+            </nav>
+        </div>
 
     </div>
-  </div>
-  <!-- Subheader End -->
+</div>
+<!-- Subheader End -->
 
-  <!-- Checkout Start -->
-  <section class="section">
+<!-- Checkout Start -->
+<section class="section">
     <div class="container">
 
-      <form method="post">
-        <div class="row">
-          <div class="col-xl-7">
-
-            <!-- Login -->
-            <div class="ct-notice">
-              <p>Are you a returning customer? <a href="#">Click here to login</a> </p>
-            </div>
-            <div class="ct-notice-content">
-              <div class="row">
-                <div class="col-xl-6 form-group">
-                  <label>Email Address</label>
-                  <input type="text" class="form-control" name="login-email" placeholder="Email Address" value="">
-                </div>
-                <div class="col-xl-6 form-group">
-                  <label>Password</label>
-                  <input type="password" class="form-control" name="login-pass" placeholder="Password" value="">
-                </div>
-                <div class="col-12 form-group">
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="rememberMe">
-                    <label class="custom-control-label" for="rememberMe">Remember Me</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn-custom shadow-none btn-sm" name="button">Login</button>
-                </div>
-              </div>
-            </div>
-            <!-- Coupon Code -->
-            <div class="ct-notice">
-              <p>Do you have a coupon code? <a href="#">Click here to apply</a> </p>
-            </div>
-            <div class="ct-notice-content">
-              <p>If you have a coupon code, apply it below</p>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Coupon Code">
-                <div class="input-group-append">
-                  <button class="btn-custom shadow-none" type="button">Apply Code</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- Buyer Info -->
-            <h4>Billing Details</h4>
+        <form method="post">
             <div class="row">
-              <div class="form-group col-xl-6">
-                <label>First Name <span class="text-danger">*</span></label>
-                <input type="text" placeholder="First Name" name="fname" class="form-control" value="" required="">
-              </div>
-              <div class="form-group col-xl-6">
-                <label>Last Name <span class="text-danger">*</span></label>
-                <input type="text" placeholder="Last Name" name="lname" class="form-control" value="" required="">
-              </div>
-              <div class="form-group col-xl-12">
-                <label>Company Name</label>
-                <input type="text" placeholder="Company Name (Optional)" name="cname" class="form-control" value="">
-              </div>
-              <div class="form-group col-xl-12">
-                <label>Country <span class="text-danger">*</span></label>
-                <select class="form-control">
+                <div class="col-xl-7">
+
+                    <!-- Login -->
+                    <div class="ct-notice">
+                        <p>Are you a returning customer? <a href="#">Click here to login</a> </p>
+                    </div>
+                    <div class="ct-notice-content">
+                        <app-login></app-login>
+                    </div>
+                    <!-- Coupon Code -->
+                    <div class="ct-notice">
+                        <p>Do you have a coupon code? <a href="#">Click here to apply</a> </p>
+                    </div>
+                    <div class="ct-notice-content">
+                        <p>If you have a coupon code, apply it below</p>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Coupon Code">
+                            <div class="input-group-append">
+                                <button class="btn-custom shadow-none" type="button">Apply Code</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buyer Info -->
+                    <h4>Billing Details</h4>
+                    <div class="row">
+                        <div class="form-group col-xl-6">
+                            <label>First Name <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="First Name" name="fname" class="form-control" value="" required="">
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Last Name <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="Last Name" name="lname" class="form-control" value="" required="">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Company Name</label>
+                            <input type="text" placeholder="Company Name (Optional)" name="cname" class="form-control" value="">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Country <span class="text-danger">*</span></label>
+                            <select class="form-control">
                   <option value="">Select a Country</option>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Åland Islands">Åland Islands</option>
@@ -327,127 +308,127 @@
                   <option value="Zambia">Zambia</option>
                   <option value="Zimbabwe">Zimbabwe</option>
                 </select>
-              </div>
-              <div class="form-group col-xl-6">
-                <label>Street Address 1 <span class="text-danger">*</span></label>
-                <input type="text" placeholder="Street Address One" name="addr-1" class="form-control" value="" required="">
-              </div>
-              <div class="form-group col-xl-6">
-                <label>Street Address 2</label>
-                <input type="text" placeholder="Street Address Two (Optional)" name="addr-1" class="form-control" value="">
-              </div>
-              <div class="form-group col-xl-12">
-                <label>Town / City <span class="text-danger">*</span></label>
-                <input type="text" placeholder="Town/City" name="town" class="form-control" value="" required="">
-              </div>
-              <div class="form-group col-xl-6">
-                <label>Phone Number <span class="text-danger">*</span></label>
-                <input type="text" placeholder="Phone Number" name="phone" class="form-control" value="" required="">
-              </div>
-              <div class="form-group col-xl-6">
-                <label>Email Address <span class="text-danger">*</span></label>
-                <input type="email" placeholder="Email Address" name="email" class="form-control" value="" required="">
-              </div>
-              <div class="form-group col-xl-12 mb-0">
-                <label>Order Notes</label>
-                <textarea name="name" rows="5" class="form-control" placeholder="Order Notes (Optional)"></textarea>
-              </div>
-            </div>
-
-            <!-- /Buyer Info -->
-
-          </div>
-          <div class="col-xl-5 checkout-billing">
-            <!-- Order Details Start -->
-            <table class="ct-responsive-table">
-              <thead>
-                <tr>
-                  <th>Product</th>
-                  <th>Qunantity</th>
-                  <th>Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td data-title="Product">
-                    <div class="cart-product-wrapper">
-                      <div class="cart-product-body">
-                        <h6> <a href="#">Pepperoni</a> </h6>
-                        <p>21 Inch</p>
-                        <p>Extra Cheese</p>
-                        <p>Extra Pepperoni</p>
-                        <p>Cheese Crust</p>
-                        <p>Added Bacon</p>
-                      </div>
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Street Address 1 <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="Street Address One" name="addr-1" class="form-control" value="" required="">
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Street Address 2</label>
+                            <input type="text" placeholder="Street Address Two (Optional)" name="addr-1" class="form-control" value="">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Town / City <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="Town/City" name="town" class="form-control" value="" required="">
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Phone Number <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="Phone Number" name="phone" class="form-control" value="" required="">
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Email Address <span class="text-danger">*</span></label>
+                            <input type="email" placeholder="Email Address" name="email" class="form-control" value="" required="">
+                        </div>
+                        <div class="form-group col-xl-12 mb-0">
+                            <label>Order Notes</label>
+                            <textarea name="name" rows="5" class="form-control" placeholder="Order Notes (Optional)"></textarea>
+                        </div>
                     </div>
-                  </td>
-                  <td data-title="Quantity">x1</td>
-                  <td data-title="Total"> <strong>23.99$</strong> </td>
-                </tr>
-                <tr>
-                  <td data-title="Product">
-                    <div class="cart-product-wrapper">
-                      <div class="cart-product-body">
-                        <h6> <a href="#">Vegetarian</a> </h6>
-                        <p>14 Inch</p>
-                      </div>
+
+                    <!-- /Buyer Info -->
+
+                </div>
+                <div class="col-xl-5 checkout-billing">
+                    <!-- Order Details Start -->
+                    <table class="ct-responsive-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Qunantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-title="Product">
+                                    <div class="cart-product-wrapper">
+                                        <div class="cart-product-body">
+                                            <h6> <a href="#">Pepperoni</a> </h6>
+                                            <p>21 Inch</p>
+                                            <p>Extra Cheese</p>
+                                            <p>Extra Pepperoni</p>
+                                            <p>Cheese Crust</p>
+                                            <p>Added Bacon</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-title="Quantity">x1</td>
+                                <td data-title="Total"> <strong>23.99$</strong> </td>
+                            </tr>
+                            <tr>
+                                <td data-title="Product">
+                                    <div class="cart-product-wrapper">
+                                        <div class="cart-product-body">
+                                            <h6> <a href="#">Vegetarian</a> </h6>
+                                            <p>14 Inch</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-title="Quantity">x1</td>
+                                <td data-title="Total"> <strong>9.99$</strong> </td>
+                            </tr>
+                            <tr>
+                                <td data-title="Product">
+                                    <div class="cart-product-wrapper">
+                                        <div class="cart-product-body">
+                                            <h6> <a href="#">Four Cheese</a> </h6>
+                                            <p>21 Inch</p>
+                                            <p>Added Cheese</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-title="Quantity">x2</td>
+                                <td data-title="Total"> <strong>13.99$</strong> </td>
+                            </tr>
+                            <tr class="total">
+                                <td>
+                                    <h6 class="mb-0">Grand Total</h6>
+                                </td>
+                                <td></td>
+                                <td> <strong>56.99$</strong> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" class="form-control" name="master-number" placeholder="Card Number" value="">
                     </div>
-                  </td>
-                  <td data-title="Quantity">x1</td>
-                  <td data-title="Total"> <strong>9.99$</strong> </td>
-                </tr>
-                <tr>
-                  <td data-title="Product">
-                    <div class="cart-product-wrapper">
-                      <div class="cart-product-body">
-                        <h6> <a href="#">Four Cheese</a> </h6>
-                        <p>21 Inch</p>
-                        <p>Added Cheese</p>
-                      </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" name="master-name" placeholder="Full Name" value="">
                     </div>
-                  </td>
-                  <td data-title="Quantity">x2</td>
-                  <td data-title="Total"> <strong>13.99$</strong> </td>
-                </tr>
-                <tr class="total">
-                  <td>
-                    <h6 class="mb-0">Grand Total</h6>
-                  </td>
-                  <td></td>
-                  <td> <strong>56.99$</strong> </td>
-                </tr>
-              </tbody>
-            </table>
+                    <div class="row">
+                        <div class="col-xl-6 form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" class="form-control" name="master-expiry" placeholder="Expiry Date (MM/YY)" value="">
+                        </div>
+                        <div class="col-xl-6 form-group">
+                            <label>CVV*</label>
+                            <input type="number" class="form-control" name="master-cvv" placeholder="CVV" value="">
+                        </div>
+                    </div>
 
-            <div class="form-group">
-              <label>Card Number</label>
-              <input type="text" class="form-control" name="master-number" placeholder="Card Number" value="">
+                    <p class="small">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a class="btn-link" href="#">privacy policy.</a> </p>
+                    <button type="submit" class="btn-custom primary btn-block">Place Order</button>
+
+                    <!-- Order Details End -->
+
+                </div>
             </div>
-            <div class="form-group">
-              <label>Full Name</label>
-              <input type="text" class="form-control" name="master-name" placeholder="Full Name" value="">
-            </div>
-            <div class="row">
-              <div class="col-xl-6 form-group">
-                <label>Expiry Date</label>
-                <input type="text" class="form-control" name="master-expiry" placeholder="Expiry Date (MM/YY)" value="">
-              </div>
-              <div class="col-xl-6 form-group">
-                <label>CVV*</label>
-                <input type="number" class="form-control" name="master-cvv" placeholder="CVV" value="">
-              </div>
-            </div>
-
-            <p class="small">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a class="btn-link" href="#">privacy policy.</a> </p>
-            <button type="submit" class="btn-custom primary btn-block">Place Order</button>
-
-            <!-- Order Details End -->
-
-          </div>
-        </div>
-      </form>
+        </form>
 
     </div>
-  </section>
-  <!-- Checkout End -->
+</section>
+<!-- Checkout End -->
 <app-footer></app-footer>

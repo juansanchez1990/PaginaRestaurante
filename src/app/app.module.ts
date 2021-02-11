@@ -48,7 +48,16 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
+import { PerfilComponent } from './components/pages/perfil/perfil.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatFormFieldModule  } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { DireccionesComponent } from './components/pages/direcciones/direcciones.component';
+import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
+import { ItemComponent } from './components/shared/item/item.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +93,13 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password/forg
     ErrorComponent,
     HeaderFourComponent,
     HeaderInnerComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    PerfilComponent,
+    DireccionesComponent,
+    VerificarCorreoComponent,
+    ItemComponent,
+  
+    
   ],
   imports: [
     BrowserModule,
@@ -106,6 +121,11 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password/forg
     }),
 
     MatCarouselModule.forRoot(),
+    MatTabsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatSidenavModule
   ],
   providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]

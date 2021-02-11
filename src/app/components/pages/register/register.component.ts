@@ -10,24 +10,28 @@ import { LoginService } from '../../../services/login.service';
 })
 export class RegisterComponent implements OnInit {
   registerForm = new FormGroup({
-    nombre: new FormControl(),
+  
     email: new FormControl(''),
     password: new FormControl(''),
+
   })
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    document.querySelector('router-outlet').scrollTop = 0;
+
   }
-  async onRegister(){
-    const {email, password, nombre}=this.registerForm.value;
-    try{
-    
-   const user=   this.authLoginRegister.register(email, password);
-   if (user){
-this.router.navigate(['/home'])
-   }
+  async onRegister() {
+    const { email, password } = this.registerForm.value;
+    try {
+
+ this.authLoginRegister.SignUp(email, password);
+
     }
-    catch(error){console.log(error);}
+    catch (error) {
+      console.log(error);
+
+    }
 
   }
 

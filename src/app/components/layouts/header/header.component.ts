@@ -10,44 +10,37 @@ import { Router } from '@angular/router';
   providers: [LoginService]
 })
 export class HeaderComponent implements OnInit {
-public IsLogged = false;
-public IsLoggedGoogle = false;
-public user : any;
-public userG: any;
-conteoPedidos: number= 0;
+  public IsLogged = false;
+  public IsLoggedGoogle = false;
+  public user: any;
+  public userG: any;
+  conteoPedidos: number = 0;
 
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
-  async ngOnInit()  {
+  async ngOnInit() {
 
-  console.log('userGoogle',this.userG);
-     this.user  = await this.authLoginRegister.getCurrentUser();
-    if (this.user ){
-      this.IsLogged = true;
-    console.log(this.user);
-    }
-
-    this.authLoginRegister.IsLogged.subscribe(data=>{
+    this.authLoginRegister.isSessionActive$.subscribe(data => {
       this.IsLogged = data;
     });
 
-    this.authLoginRegister.userInfo.subscribe(data=>{
+    this.authLoginRegister.userData$.subscribe(data => {
       this.user = data;
     });
-   
-  }
-
-  async onLogout(){
-    try{ 
-      await this.authLoginRegister.logout();
-      this.router.navigate(['/login']);}
-    catch(error){console.log(error);}
-   
 
   }
 
- 
-      
-    
+  async onLogout() {
+    try {
+      await this.authLoginRegister.SignOut();
+    }
+    catch (error) { console.log(error); }
+
+
+  }
+
+
+
+
 
 }
