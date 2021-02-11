@@ -12,14 +12,16 @@
                 </select>
             </div>
             <div (click)="sumProductos()"></div>
-            <angular-input-counter class="m-5" [min]="1" [max]="20" [step]="1" [readonly]="true"
-                [(counterValue)]="counterValue" [color]="'primary'"></angular-input-counter>
+            <button type="button" class="btn btn-danger m-1"  (click)="sumProductos()"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-danger m-1" (click)="restarProducto()"><i class="fas fa-minus"></i></button>
+           <div> {{counter}}  </div>
+           
             <p class="product-price ">{{getPrice()?.Precio | currency: 'L. '}}</p>
             <div class="favorite ">
                 <i class="far fa-heart "></i>
             </div>
         </div>
-        <div class="product-controls " (click)="aggToCart(product)">
+        <div class="product-controls "   (click)="aggToCart(product)">
             <a class="order-item btn-custom btn-sm shadow-none ">Ordenar <i class="fas fa-shopping-cart "></i> </a>
             <!-- <a href="# " class="btn-custom secondary btn-sm shadow-none " data-toggle="modal " data-target="#customizeModal "> Customize <i class="fas fa-plus "></i> </a> -->
         </div>

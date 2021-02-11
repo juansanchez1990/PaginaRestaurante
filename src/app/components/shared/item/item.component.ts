@@ -8,7 +8,7 @@ import { Products } from 'src/app/interfaces/products';
 })
 export class ItemComponent implements OnInit {
   @Input() product: Products;
-  counterValue = 1;
+  public counter : number = 0;
   selectedSize = null;
 
   constructor() { }
@@ -23,15 +23,15 @@ export class ItemComponent implements OnInit {
   }
 
   sumProductos() {
-    this.counterValue = this.counterValue + 1;
+    this.counter += 1;
   }
 
   restarProducto() {
-    if (this.counterValue - 1 < 0) {
-      this.counterValue = 0;
+    if (this.counter  <=  0) {
+      this.counter = 0;
     }
     else {
-      this.counterValue = this.counterValue - 1;
+      this.counter = this.counter - 1;
     }
   }
 
