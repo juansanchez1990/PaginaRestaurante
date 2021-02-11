@@ -10,6 +10,7 @@ export class ItemComponent implements OnInit {
   @Input() product: Products;
   public counter : number = 0;
   selectedSize = null;
+  hayCantidad : boolean =false
 
   constructor() { }
 
@@ -24,13 +25,16 @@ export class ItemComponent implements OnInit {
 
   sumProductos() {
     this.counter += 1;
+    this.hayCantidad= true;
   }
 
   restarProducto() {
     if (this.counter  <=  0) {
       this.counter = 0;
+      this.hayCantidad= false;
     }
     else {
+      this.hayCantidad= false;
       this.counter = this.counter - 1;
     }
   }
