@@ -2018,6 +2018,20 @@ table img {
     background-color: #ED4E53;
 }
 
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .top-header .header-cta li a {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 50px;
+        -webkit-box-align: right;
+        -ms-flex-align: right;
+        align-items: center;
+        padding: 0 5px;
+        background-color: #ED4E53;
+    }
+}
+
 .top-header .header-cta li a:hover {
     color: #fff;
     background-color: #da464a;

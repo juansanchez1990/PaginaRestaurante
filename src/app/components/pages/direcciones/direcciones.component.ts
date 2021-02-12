@@ -33,11 +33,31 @@ export class DireccionesComponent implements OnInit {
   }
 
   deleteDirecction(direccion) {
-    this.User.Direcciones = this.User.Direcciones.filter(i => i !== direccion);
-    this.perfil.updateUserInfo(this.User);
+    Swal.fire({
+      title: 'Desea elminar esta dirección?',
+      text: "Esta acción no se puede revertir",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Hecho',
+          'Esta dirección ha sido removida',
+          'success'
+        )
+      }
+      this.User.Direcciones = this.User.Direcciones.filter(i => i !== direccion);
+      this.perfil.updateUserInfo(this.User);
+    })
   }
 
   async addDireccion() {
+   
+
+
     let direccion = {
       Titulo: this.Titulo.value,
       Direccion: this.Direccion.value

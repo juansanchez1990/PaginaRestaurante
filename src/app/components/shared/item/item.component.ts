@@ -15,7 +15,11 @@ export class ItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
     this.selectedSize = this.product.Size[0].Size;
+    if( this.counter === 0){
+      this.hayCantidad  =false
+    }
   }
 
 
@@ -29,15 +33,16 @@ export class ItemComponent implements OnInit {
   }
 
   restarProducto() {
-    if (this.counter  <=  0) {
-      this.counter = 0;
+    this.counter = this.counter - 1;
+    if (this.counter  ===  0) {
+   
       this.hayCantidad= false;
     }
-    else {
-      this.hayCantidad= false;
-      this.counter = this.counter - 1;
-    }
+   
+
+ 
   }
+
 
   getPrice() {
     return this.product.Size.find(i => i.Size === this.selectedSize);
