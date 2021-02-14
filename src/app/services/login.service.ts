@@ -69,10 +69,24 @@ export class LoginService {
     return this.afAuth.signOut().then(() => {
       this.afAuth.signInWithEmailAndPassword(email, password)
         .then((result) => {
-      
+         
           this.SetUserData(result.user);
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Registro Exitoso',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.router.navigateByUrl('/home');
+
         }).catch((error) => {
-      
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Este correo no existe en nuestro sistema',
+       
+          })
         })
     });
 
