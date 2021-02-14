@@ -22,10 +22,12 @@ export class HeaderComponent implements OnInit {
 
     this.authLoginRegister.isSessionActive$.subscribe(data => {
       this.IsLogged = data;
+      console.log('Está logueado?',this.IsLogged);
     });
 
     this.authLoginRegister.userData$.subscribe(data => {
       this.user = data;
+      console.log('Data',this.user);
     });
 
   }

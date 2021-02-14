@@ -58,6 +58,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { DireccionesComponent } from './components/pages/direcciones/direcciones.component';
 import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
 import { ItemComponent } from './components/shared/item/item.component';
+import { CartListComponent } from './components/pages/cart-list/cart-list.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { ItemComponent } from './components/shared/item/item.component';
     DireccionesComponent,
     VerificarCorreoComponent,
     ItemComponent,
+    CartListComponent,
   
     
   ],
