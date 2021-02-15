@@ -4,6 +4,7 @@ import { ProductsService } from '../../../services/products.service';
 import { Products } from 'src/app/interfaces/products';
 import { EventEmitter } from 'events';
 import { Departamentos } from 'src/app/interfaces/departamentos';
+import { ShoppingCartService } from '../../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-menu-one',
