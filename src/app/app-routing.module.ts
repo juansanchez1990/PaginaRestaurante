@@ -77,7 +77,7 @@ const routes: Routes = [
     path:'locations',component:LocationsComponent
   },
   {
-    path:'login',component:LoginComponent
+    path: 'login', component: LoginComponent
   },
   {
     path:'register',component:RegisterComponent

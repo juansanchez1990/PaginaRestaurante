@@ -6,14 +6,8 @@
 
     <div class="aside-scroll">
         <ul>
-            <li class="menu-item menu-item-has-children Relleno  ">
-                <a href="# ">Home</a>
-                <ul class="submenu ">
-                    <li class="menu-item "> <a routerLink='/'>Home v1</a> </li>
-                    <li class="menu-item "> <a routerLink='/home-v2'>Home v2</a> </li>
-                    <li class="menu-item "> <a routerLink='/home-v3'>Home v3</a> </li>
-                    <li class="menu-item "> <a routerLink='/home-v4'>Home v4</a> </li>
-                </ul>
+            <li class="menu-item ">
+                <a routerLink='/home'>Home</a>
             </li>
 
 
@@ -44,7 +38,8 @@
 
                 <div class="top-header-contacts ">
                     <ul class="top-header-nav ">
-                        <li> <a class="p-0 " routerLink='/login'><i class="fas fa-phone mr-2 "></i> +123 456 789</a> </li>
+                        <li> <a class="p-0 " routerLink='/login'><i class="fas fa-phone mr-2 "></i> +123 456 789</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -56,7 +51,8 @@
                 <ul class="top-header-nav header-cta ">
                     <li *ngIf="IsLogged">
 
-                        <a (click)="onLogout()" style=" cursor: pointer;"> <i class="fas fa-user-times m-2"></i> Cerrar Sesión </a>
+                        <a (click)="onLogout()" style=" cursor: pointer;"> <i class="fas fa-user-times m-2"></i> Cerrar
+                            Sesión </a>
                     </li>
                 </ul>
                 <ul class="top-header-nav header-cta ">
@@ -64,20 +60,28 @@
                         <!-- <a style=" cursor: pointer;"> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a> -->
                         <div class="dropdown">
                             <div *ngIf="user.displayName != null">
-                                <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.displayName}}</button>
-                                <img class="d-block d-sm-block d-md-none" [src]="user.photoURL" class="img-thumbnail imagePerfil" alt="...">
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <button type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false" type="button"
+                                    class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.displayName}}</button>
+                                <img class="d-block d-sm-block d-md-none" [src]="user.photoURL"
+                                    class="img-thumbnail imagePerfil" alt="...">
+
+                                <div class="dropdown-menu" aria-labelledby="menu1">
                                     <a routerLink='/perfil' class="dropdown-item">
                                         <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
                                     </a>
                                     <a routerLink='/cart' class="dropdown-item">
-                                        <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i> </h5>
+                                        <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i>
+                                        </h5>
                                     </a>
 
                                 </div>
                             </div>
                             <div *ngIf="user.displayName == null">
-                                <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.email}}</button></div>
+                                <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" type="button"
+                                    class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.email}}</button>
+                            </div>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a routerLink='/perfil' class="dropdown-item">
                                     <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
@@ -102,14 +106,8 @@
             <a class="navbar-brand Logo " routerLink='/'> <img src="assets/img/logo.png " alt="logo "> </a>
             <!-- Menu -->
             <ul class="navbar-nav ">
-                <li class="menu-item menu-item-has-children ">
-                    <a href="# ">Home </a>
-                    <ul class="submenu ">
-                        <li class="menu-item "> <a routerLink='/'>Home v1</a> </li>
-                        <li class="menu-item "> <a routerLink='/home-v2'>Home v2</a> </li>
-                        <li class="menu-item "> <a routerLink='/home-v3'>Home v3</a> </li>
-                        <li class="menu-item "> <a routerLink='/home-v4'>Home v4</a> </li>
-                    </ul>
+                <li class="menu-item ">
+                    <a routerLink='/home'>Home</a>
                 </li>
 
 

@@ -9,17 +9,17 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
 })
 export class ItemComponent implements OnInit {
   @Input() product: Products;
-  public counter : number = 0;
+  public counter: number = 0;
   selectedSize = null;
-  hayCantidad : boolean =false
+  hayCantidad: boolean = false
 
   constructor(private shopCart: ShoppingCartService) { }
 
   ngOnInit(): void {
 
     this.selectedSize = this.product.Size[0].Size;
-    if( this.counter === 0){
-      this.hayCantidad  =false
+    if (this.counter === 0) {
+      this.hayCantidad = false
     }
   }
 
@@ -30,21 +30,21 @@ export class ItemComponent implements OnInit {
 
   sumProductos() {
     this.counter += 1;
-    this.hayCantidad= true;
+    this.hayCantidad = true;
   }
 
   restarProducto() {
     this.counter = this.counter - 1;
-    if (this.counter  ===  0) {
-   
-      this.hayCantidad= false;
-    }
-   
+    if (this.counter === 0) {
 
- 
+      this.hayCantidad = false;
+    }
+
+
+
   }
 
-  
+
 
 
   getPrice() {
@@ -64,7 +64,7 @@ export class ItemComponent implements OnInit {
 
   }
 
-  traerProducto(Items){
+  traerProducto(Items) {
     this.shopCart.getItems(Items);
   }
 
