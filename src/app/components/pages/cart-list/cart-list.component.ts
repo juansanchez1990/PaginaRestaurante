@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { Products } from 'src/app/interfaces/products';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
 
 @Component({
@@ -7,13 +8,11 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
   styleUrls: ['./cart-list.component.css']
 })
 export class CartListComponent implements OnInit {
-ProductosCart: any;
+ProductosCart: Array<Products>;
   constructor(private shopCart: ShoppingCartService) { }
 
   ngOnInit()  {
-   this.ProductosCart = this.shopCart.Item$
 
-   console.log('Estos son los productos a enviar', this.ProductosCart);
   }
 
 }
