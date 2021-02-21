@@ -1,15 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
-import { HomeTwoComponent } from './components/pages/home-two/home-two.component';
-import { HomeThreeComponent } from './components/pages/home-three/home-three.component';
-import { HomeFourComponent } from './components/pages/home-four/home-four.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
-import { BlogFullComponent } from './components/pages/blog-full/blog-full.component';
-import { BlogGridComponent } from './components/pages/blog-grid/blog-grid.component';
-import { BlogListComponent } from './components/pages/blog-list/blog-list.component';
-import { BlogMasonaryComponent } from './components/pages/blog-masonary/blog-masonary.component';
-import { BlogSingleComponent } from './components/pages/blog-single/blog-single.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
@@ -25,44 +17,23 @@ import { ErrorComponent } from './components/pages/error/error.component';
 import { ForgotPasswordComponent } from './components/pages/forgot-password/forgot-password.component';
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
+import { CartListComponent } from './components/pages/cart-list/cart-list.component';
 
 
 const routes: Routes = [
+
   {
-    path:'',component:HomeComponent
+    path:'inicio',component:HomeComponent
   },
-  {
-    path:'home',component:HomeComponent
-  },
-  {
-    path:'home-v2',component:HomeTwoComponent
-  },
-  {
-    path:'home-v3',component:HomeThreeComponent
-  },
-  {
-    path:'home-v4',component:HomeFourComponent
-  },
-  {
+{ 
     path:'about',component:AboutUsComponent
   },
-  {
-    path:'blog-full',component:BlogFullComponent
-  },
-  {
-    path:'blog-grid',component:BlogGridComponent
-  },
-  {
-    path:'blog-list',component:BlogListComponent
-  },
-  {
-    path:'blog-masonary',component:BlogMasonaryComponent
-  },
-  {
-    path:'blog-single',component:BlogSingleComponent
-  },
+
   {
     path:'cart',component:CartComponent
+  },
+  {
+    path:'cartList',component:CartListComponent
   },
   {
     path:'checkout',component:CheckoutComponent
@@ -97,9 +68,7 @@ const routes: Routes = [
   {
     path:'perfil',component:PerfilComponent
   },
-  {
-    path:'**',component:ErrorComponent
-  }
+
 ];
 
 @NgModule({

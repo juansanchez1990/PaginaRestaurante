@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Products } from 'src/app/interfaces/products';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item',
@@ -13,7 +14,7 @@ export class ItemComponent implements OnInit {
   selectedSize = null;
   hayCantidad: boolean = false
 
-  constructor(private shopCart: ShoppingCartService) { }
+  constructor(private shopCart: ShoppingCartService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -65,7 +66,17 @@ export class ItemComponent implements OnInit {
   }
 
   traerProducto(Items) {
-    this.shopCart.getItems(Items);
+// let url= this.router.url;
+let counter = this.counter
+
+    let Item={
+      items : Items,
+ 
+      counter
+      
+    }
+
+this.shopCart.addShoppingCart(Item);
   }
 
 }

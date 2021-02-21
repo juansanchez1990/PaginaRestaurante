@@ -9,10 +9,18 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
 })
 export class CartListComponent implements OnInit {
 ProductosCart: Array<Products>;
+Items = [];
   constructor(private shopCart: ShoppingCartService) { }
 
   ngOnInit()  {
-
+this.getItems();
   }
 
+  getItems(){
+    this.shopCart.itemAComprarNuevo.subscribe(data=>{
+      console.log(data);
+      this.Items = data
+
+    })
+  }
 }

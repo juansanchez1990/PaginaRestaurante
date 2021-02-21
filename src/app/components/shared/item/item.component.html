@@ -13,13 +13,13 @@
             </div>
             <div (click)="sumProductos()"></div>
             <button [disabled]="!hayCantidad" type="button" class="btn btn-danger m-1" (click)="restarProducto()"><i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-danger m-1" (click)="sumProductos()"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-danger m-2" (click)="sumProductos()"><i class="fas fa-plus"></i></button>
             <div> {{counter}} </div>
 
             <p class="product-price ">{{getPrice()?.Precio | currency: 'L. '}}</p>
 
         </div>
-        <div class="product-controls " (click)="aggToCart(product)">
+        <div class="product-controls " (click)="traerProducto(product)">
             <!-- <a   class="order-item btn-custom btn-sm shadow-none ">Ordenar </a> -->
             <button (click)="traerProducto(product)" [disabled]="!hayCantidad" type="button" class="btn btn-danger">Ordenar <i class="fas fa-shopping-cart "></i> </button>
             <!-- <a href="# " class="btn-custom secondary btn-sm shadow-none " data-toggle="modal " data-target="#customizeModal "> Customize <i class="fas fa-plus "></i> </a> -->

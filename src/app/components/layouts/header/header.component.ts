@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
       this.user = data;
       console.log('Data',this.user);
     });
+    
 
   }
 
