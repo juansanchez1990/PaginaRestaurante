@@ -17,7 +17,7 @@ this.getItems();
   }
 
   getItems(){
-    this.shopCart.itemAComprarNuevo.subscribe(data=>{
+    this.shopCart.ItemAComprar.subscribe(data=>{
    
       this.Items = data
       console.log('Datos Recibidos',this.Items);
