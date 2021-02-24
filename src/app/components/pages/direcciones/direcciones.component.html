@@ -1,4 +1,3 @@
-<app-header></app-header>
 <form [formGroup]="directionForm">
     <div class="mb-3">
         <label for="Titulo" class="form-label">Nombre de la dirección</label>
@@ -17,8 +16,7 @@
         <button (click)="deleteDirecction(direccion)" type="button" class="btn btn-warning btnDelete"> <i class="fas fa-trash-alt"></i> Eliminar</button>
     </div>
     <div class="card-body">
-       <p>{{direccion.Direccion}}</p>
+        <p>{{direccion.Direccion}}</p>
 
     </div>
 </div>
-<app-footer></app-footer>
