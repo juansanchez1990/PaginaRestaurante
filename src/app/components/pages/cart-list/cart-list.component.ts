@@ -10,6 +10,7 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
 export class CartListComponent implements OnInit {
 ProductosCart: Array<Products>;
 Items = [];
+selectedSize = null;
   constructor(private shopCart: ShoppingCartService) { }
 
   ngOnInit()  {
@@ -23,4 +24,6 @@ this.getItems();
       console.log('Datos Recibidos',this.Items);
     })
   }
+
+ 
 }

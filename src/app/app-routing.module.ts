@@ -23,6 +23,9 @@ import { CartListComponent } from './components/pages/cart-list/cart-list.compon
 const routes: Routes = [
 
   {
+    path:'',component:HomeComponent
+  },
+  {
     path:'inicio',component:HomeComponent
   },
 { 
