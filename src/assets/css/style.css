@@ -1226,7 +1226,7 @@ table img {
 .main-header {
     position: relative;
     width: 100%;
-    background-color: transparent;
+    background-color: white;
     z-index: 990;
     -webkit-transition: background-color 0.3s;
     -o-transition: background-color 0.3s;

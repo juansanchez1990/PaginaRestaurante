@@ -1,111 +1,11 @@
 <!-- Aside (Mobile Navigation) -->
 
+<div class="sticky-top">
+    <aside class="main-aside ">
+        <a class="navbar-brand Logo " routerLink='/'> <img src="assets/img/logo.png" alt="logo"> </a>
 
-<aside class="main-aside">
-    <a class="navbar-brand Logo " routerLink='/'> <img src="assets/img/logo.png" alt="logo"> </a>
-
-    <div class="aside-scroll">
-        <ul>
-            <li class="menu-item ">
-                <a routerLink='/inicio'>Home</a>
-            </li>
-
-
-
-            <li class="menu-item ">
-                <a routerLink='/menu'>Menu</a>
-            </li>
-            <li class="menu-item ">
-                <a routerLink='/locations'>Localidades</a>
-            </li>
-            <li class="menu-item ">
-                <a routerLink='/contact'>Contactactenos</a>
-            </li>
-        </ul>
-
-    </div>
-
-</aside>
-<div class="aside-overlay aside-trigger "></div>
-
-<!-- Header Start -->
-<header class="main-header header-1 position-sticky ">
-
-
-    <div class="top-header ">
-        <div class="container ">
-            <div class="top-header-inner d-flex flex-row bd-highlight mb-3 ">
-
-                <div class="top-header-contacts ">
-                    <ul class="top-header-nav ">
-                        <li> <a class="p-0 " routerLink='/login'><i class="fas fa-phone mr-2 "></i> +123 456 789</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <ul class="top-header-nav header-cta ">
-                    <li *ngIf="!IsLogged">
-                        <a routerLink='/login'> <i class="fas fa-user m-2"></i> INGRESE CON SU USUARIO </a>
-                    </li>
-                </ul>
-                <ul class="top-header-nav header-cta ">
-                    <li *ngIf="IsLogged">
-
-                        <a (click)="onLogout()" style=" cursor: pointer;"> <i class="fas fa-user-times m-2"></i> Cerrar
-                            Sesión </a>
-                    </li>
-                </ul>
-                <ul class="top-header-nav header-cta ">
-                    <li *ngIf="IsLogged">
-                        <!-- <a style=" cursor: pointer;"> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a> -->
-                        <div class="dropdown">
-                            <div *ngIf="user.displayName != null">
-                                <button type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false" type="button"
-                                    class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.displayName}}</button>
-                                <img class="d-block d-sm-block d-md-none" [src]="user.photoURL"
-                                    class="img-thumbnail imagePerfil" alt="...">
-
-                                <div class="dropdown-menu" aria-labelledby="menu1">
-                                    <a routerLink='/perfil' class="dropdown-item">
-                                        <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
-                                    </a>
-                                    <a routerLink='/cart' class="dropdown-item">
-                                        <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i>
-                                        </h5>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div *ngIf="user.displayName == null">
-                                <button type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" type="button"
-                                    class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.email}}</button>
-                            </div>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a routerLink='/perfil' class="dropdown-item">
-                                    <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
-                                </a>
-                                <a routerLink='/cart' class="dropdown-item">
-                                    <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i> </h5>
-                                </a>
-
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="container position-sticky mt-5  ">
-        <nav class="navbar ">
-            <!-- Logo -->
-            <a class="navbar-brand Logo " routerLink='/'> <img src="assets/img/logo.png " alt="logo "> </a>
-            <!-- Menu -->
-            <ul class="navbar-nav ">
+        <div class="aside-scroll">
+            <ul>
                 <li class="menu-item ">
                     <a routerLink='/inicio'>Home</a>
                 </li>
@@ -113,38 +13,132 @@
 
 
                 <li class="menu-item ">
-                    <a routerLink='/menu'>Menú</a>
-                </li>
-
-                <li class="menu-item ">
-                    <a routerLink='/locations'>Ubicaciones</a>
+                    <a routerLink='/menu'>Menu</a>
                 </li>
                 <li class="menu-item ">
-                    <a routerLink='/contact'>Contactenos</a>
+                    <a routerLink='/locations'>Localidades</a>
+                </li>
+                <li class="menu-item ">
+                    <a routerLink='/contact'>Contactactenos</a>
                 </li>
             </ul>
 
-            <div class="header-controls ">
-                <ul class="header-controls-inner ">
-                    <li class="cart-dropdown-wrapper cart-trigger ">
-                        <span class="cart-item-count ">{{conteoPedidos}}</span>
-                        <i class="flaticon-shopping-bag "></i>
+        </div>
+
+    </aside>
+    <div class="aside-overlay aside-trigger "></div>
+
+    <!-- Header Start -->
+    <header class="main-header header-1  ">
+
+
+        <div class="top-header ">
+            <div class="container ">
+                <div class="top-header-inner d-flex flex-row bd-highlight mb-3 ">
+
+                    <div class="top-header-contacts ">
+                        <ul class="top-header-nav ">
+                            <li> <a class="p-0 " routerLink='/login'><i class="fas fa-phone mr-2 "></i> +123 456 789</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <ul class="top-header-nav header-cta ">
+                        <li *ngIf="!IsLogged">
+                            <a routerLink='/login'> <i class="fas fa-user m-2"></i> INGRESE CON SU USUARIO </a>
+                        </li>
+                    </ul>
+                    <ul class="top-header-nav header-cta ">
+                        <li *ngIf="IsLogged">
+
+                            <a (click)="onLogout()" style=" cursor: pointer;"> <i class="fas fa-user-times m-2"></i> Cerrar Sesión </a>
+                        </li>
+                    </ul>
+                    <ul class="top-header-nav header-cta ">
+                        <li *ngIf="IsLogged">
+                            <!-- <a style=" cursor: pointer;"> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a> -->
+                            <div class="dropdown">
+                                <div *ngIf="user.displayName != null">
+                                    <button type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.displayName}}</button>
+                                    <img class="d-block d-sm-block d-md-none" [src]="user.photoURL" class="img-thumbnail imagePerfil" alt="...">
+
+                                    <div class="dropdown-menu" aria-labelledby="menu1">
+                                        <a routerLink='/perfil' class="dropdown-item">
+                                            <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
+                                        </a>
+                                        <a routerLink='/cart' class="dropdown-item">
+                                            <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i>
+                                            </h5>
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div *ngIf="user.displayName == null">
+                                    <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.email}}</button>
+                                </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a routerLink='/perfil' class="dropdown-item">
+                                        <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
+                                    </a>
+                                    <a routerLink='/cart' class="dropdown-item">
+                                        <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i> </h5>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container position-sticky mt-5  ">
+            <nav class="navbar ">
+                <!-- Logo -->
+                <a class="navbar-brand Logo " routerLink='/'> <img src="assets/img/logo.png " alt="logo "> </a>
+                <!-- Menu -->
+                <ul class="navbar-nav ">
+                    <li class="menu-item ">
+                        <a routerLink='/inicio'>Home</a>
                     </li>
-                    <li class="search-dropdown-wrapper search-trigger ">
-                        <i class="flaticon-search "></i>
+
+
+
+                    <li class="menu-item ">
+                        <a routerLink='/menu'>Menú</a>
+                    </li>
+
+                    <li class="menu-item ">
+                        <a routerLink='/locations'>Ubicaciones</a>
+                    </li>
+                    <li class="menu-item ">
+                        <a routerLink='/contact'>Contactenos</a>
                     </li>
                 </ul>
-                <!-- Toggler -->
-                <div class="aside-toggler aside-trigger ">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+                <div class="header-controls ">
+                    <ul class="header-controls-inner ">
+                        <li class="cart-dropdown-wrapper cart-trigger ">
+                            <span class="cart-item-count ">{{conteoPedidos}}</span>
+                            <i class="flaticon-shopping-bag "></i>
+                        </li>
+                        <li class="search-dropdown-wrapper search-trigger ">
+                            <i class="flaticon-search "></i>
+                        </li>
+                    </ul>
+                    <!-- Toggler -->
+                    <div class="aside-toggler aside-trigger ">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
-            </div>
 
-        </nav>
-    </div>
+            </nav>
+        </div>
 
-</header>
-
+    </header>
+</div>
 <!-- Header End -->
