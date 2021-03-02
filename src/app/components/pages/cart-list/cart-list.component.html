@@ -1,49 +1,50 @@
 <!-- Cart Sidebar Start -->
-
-<div class="cart-sidebar-wrapper sticky-top">
-    <aside class="cart-sidebar ">
-        <div class="cart-sidebar-header">
-            <h3>Your Cart</h3>
-            <div class="close-btn cart-trigger close-dark">
-                <span></span>
-                <span></span>
+<div class="scroll-container">
+    <div class="cart-sidebar-wrapper sticky-top">
+        <aside class="cart-sidebar ">
+            <div class="cart-sidebar-header">
+                <h3>Your Cart</h3>
+                <div class="close-btn cart-trigger close-dark">
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-        </div>
-        <div class="cart-sidebar-body" *ngFor="let item of Items">
-            <div class="cart-sidebar-scroll">
-                <div class="cart-sidebar-item">
-                    <div class="media">
-                        <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/1.png" alt="product"></a>
-                        <div class="media-body">
-                            <h5> <a routerLink='/menu-item-v1' title="Pepperoni">{{item.items.Nombre}}</a> </h5>
-                            <span>{{item.counter}} x {{item.items.Size[0]?.Precio}}$</span>
+            <div class="cart-sidebar-body " *ngFor="let item of Items">
+                <div class="cart-sidebar-scroll">
+                    <div class="cart-sidebar-item">
+                        <div class="media">
+                            <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/1.png" alt="product"></a>
+                            <div class="media-body">
+                                <h5> <a title="Pepperoni">{{item.items.Nombre}}</a> </h5>
+                                <span>{{item.counter}} x {{item.price.Precio}}$</span>
+                            </div>
+                        </div>
+                        <div class="cart-sidebar-item-meta">
+                            <span>{{item.items.Descripcion}}</span>
+
+
+                        </div>
+                        <div class="cart-sidebar-price">
+                            36.99$
+                        </div>
+                        <div class="close-btn">
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
-                    <div class="cart-sidebar-item-meta">
-                        <span>14 Inches</span>
-                        <span>Extra Cheese</span>
-                        <span>Cheese Crust</span>
-                    </div>
-                    <div class="cart-sidebar-price">
-                        36.99$
-                    </div>
-                    <div class="close-btn">
-                        <span></span>
-                        <span></span>
-                    </div>
+
+
+
+
                 </div>
-
-
-
-
             </div>
+            <div class="cart-sidebar-footer">
+                <h4>Total: <span>299.99$</span> </h4>
+                <a href="#" class="btn-custom">Checkout</a>
+            </div>
+        </aside>
+        <div class="cart-sidebar-overlay cart-trigger">
         </div>
-        <div class="cart-sidebar-footer">
-            <h4>Total: <span>299.99$</span> </h4>
-            <a href="#" class="btn-custom">Checkout</a>
-        </div>
-    </aside>
-    <div class="cart-sidebar-overlay cart-trigger">
     </div>
 </div>
 <!-- Cart Sidebar End -->

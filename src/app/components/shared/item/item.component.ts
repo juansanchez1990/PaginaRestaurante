@@ -67,13 +67,17 @@ export class ItemComponent implements OnInit {
 
   traerProducto(Items) {
 // let url= this.router.url;
+
 let counter = this.counter
+let price = this.getPrice();
 
     let Item={
       items : Items,
+      price,
+      counter,
  
-      counter
       
+
     }
 
 this.shopCart.addShoppingCart(Item);

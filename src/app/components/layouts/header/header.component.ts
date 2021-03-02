@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
+import { ShoppingCartService } from '../../../services/shopping-cart.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
   public userG: any;
   conteoPedidos: number = 0;
 
-  constructor(private authLoginRegister: LoginService, private router: Router) { }
+  constructor(private authLoginRegister: LoginService, private router: Router, private shopCart: ShoppingCartService) { }
 
   async ngOnInit() {
 
