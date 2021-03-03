@@ -11,7 +11,13 @@ export class ShoppingCartService {
  
 
   public ItemAComprar = new BehaviorSubject([]);
-  constructor() { }
+  constructor() { 
+
+    let items = localStorage.getItem('ShopCart');
+    if (items){
+      this.ItemAComprar.next(JSON.parse(items));
+    }
+  }
 
 
 
@@ -20,7 +26,7 @@ addShoppingCart (Item){
 temp.push(Item);
 this.ItemAComprar.next(temp);
   
-
+localStorage.setItem('ShopCart',JSON.stringify(temp))
 
 
  
