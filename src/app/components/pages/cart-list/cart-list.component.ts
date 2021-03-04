@@ -11,6 +11,7 @@ export class CartListComponent implements OnInit {
 ProductosCart: Array<Products>;
 Items = [];
 selectedSize = null;
+Total: number;
   constructor(private shopCart: ShoppingCartService) { }
 
   ngOnInit()  {
@@ -19,10 +20,10 @@ this.getItems();
 
   getItems(){
     this.shopCart.ItemAComprar.subscribe(data=>{
-    
       this.Items = data
      
-      console.log('Datos Recibidos',this.Items);
+      // console.log('Datos Recibidos',this.Items);
+
     })
   }
 

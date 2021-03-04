@@ -29,11 +29,14 @@ this.ItemAComprar.next(temp);
 localStorage.setItem('ShopCart',JSON.stringify(temp))
 
 
- 
+
 
 
 
 }
 
+guardarLocal(){
+   
+}
 }
 
