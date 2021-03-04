@@ -16,6 +16,7 @@ export class ShoppingCartService {
     let items = localStorage.getItem('ShopCart');
     if (items){
       this.ItemAComprar.next(JSON.parse(items));
+      console.log('items',items);
     }
   }
 
