@@ -69,13 +69,12 @@ export class ItemComponent implements OnInit {
 // let url= this.router.url;
 
 let counter = this.counter
-
+let precio = this.getPrice();
     let Item={
       items : Items,
       Size: this.getPrice(),
       counter,
- 
-      
+      Total : precio.Precio * counter
 
     }
 

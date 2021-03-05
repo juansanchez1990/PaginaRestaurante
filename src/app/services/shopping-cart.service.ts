@@ -11,12 +11,13 @@ export class ShoppingCartService {
  
 
   public ItemAComprar = new BehaviorSubject([]);
+  public itemLocalStorage : any;
   constructor() { 
 
-    let items = localStorage.getItem('ShopCart');
-    if (items){
-      this.ItemAComprar.next(JSON.parse(items));
-      console.log('items',items);
+    this.itemLocalStorage= localStorage.getItem('ShopCart');
+    if (this.itemLocalStorage){
+      this.ItemAComprar.next(JSON.parse( this.itemLocalStorage));
+      
     }
   }
 

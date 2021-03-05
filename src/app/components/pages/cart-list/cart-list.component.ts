@@ -22,6 +22,7 @@ ngAfterViewInit(){
 }
   getItems(){
     this.shopCart.ItemAComprar.subscribe(data=>{
+      
       this.Items = data;
      console.log('esta es la data',data);
       // console.log('Datos Recibidos',this.Items);

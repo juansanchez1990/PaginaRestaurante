@@ -20,7 +20,14 @@ export class HeaderComponent implements OnInit {
   constructor(private authLoginRegister: LoginService, private router: Router, private shopCart: ShoppingCartService) { }
 
   async ngOnInit() {
-
+    this.shopCart.ItemAComprar.subscribe(data=>{
+      
+      if(data){
+  
+        this.conteoPedidos = this.conteoPedidos+1;
+      }
+  
+      })
     this.authLoginRegister.isSessionActive$.subscribe(data => {
       this.IsLogged = data;
     
