@@ -121,7 +121,7 @@
                 <div class="header-controls ">
                     <ul class="header-controls-inner ">
                         <li class="cart-dropdown-wrapper cart-trigger ">
-                            <span class="cart-item-count ">{{conteoPedidos}}</span>
+                            <span class="cart-item-count ">{{(shopCart.ItemAComprar | async ).length}}</span>
                             <i class="flaticon-shopping-bag "></i>
                         </li>
                         <li class="search-dropdown-wrapper search-trigger ">
