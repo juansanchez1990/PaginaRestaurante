@@ -74,7 +74,8 @@ let precio = this.getPrice();
       items : Items,
       Size: this.getPrice(),
       counter,
-      Total : precio.Precio * counter
+      Total : precio.Precio * counter,
+   
 
     }
 

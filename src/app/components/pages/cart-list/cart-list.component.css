@@ -3,3 +3,8 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+
+.Imagen {
+    width: 150px;
+    height: auto;
+}

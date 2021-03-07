@@ -19,9 +19,11 @@
 
                         <tr>
 
-                            <td>{{item.items.Nombre}}</td>
-                            <td>{{item.counter}}</td>
-                            <td>{{item.Total}}</td>
+                            <td><strong>Producto: </strong> {{item.items.Nombre}}</td>
+                            <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
+                            <td><strong>Cantidad: </strong> Cantidad: {{item.counter}}</td>
+                            <td><strong> Precio:</strong> Lps. {{item.Size.Precio}}</td>
+                            <td> <strong>Total:</strong>Total: Lps. {{item.Total}}</td>
                             <td><button type="button" class="btn btn-success" (click)="delete(item)">Success</button></td>
 
 
@@ -34,7 +36,7 @@
 
             <div class="cart-sidebar-footer">
                 <h4>Total: <span>299.99$</span> </h4>
-                <a class="btn-custom">Checkout</a>
+                <a routerLink="/checkout" class="btn-custom">Checkout</a>
             </div>
         </aside>
         <div class="cart-sidebar-overlay cart-trigger">
