@@ -12,6 +12,7 @@ export class ShoppingCartService {
 
   public ItemAComprar = new BehaviorSubject([]);
   public itemLocalStorage : any;
+  public dataInLocalStorage:any;
   constructor() { 
 
     this.itemLocalStorage= localStorage.getItem('ShopCart');
@@ -36,9 +37,36 @@ localStorage.setItem('ShopCart',JSON.stringify(temp))
 
 
 }
+delete(Item){
+  let temp = this.ItemAComprar.getValue();
 
-guardarLocal(){
-   
+
+
+  Swal.fire({
+    title: 'Desea eliminar este producto?',
+    text: "Esta operación no se puede revertir!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, eliminar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Hecho!',
+        'Este producto ha sido removido',
+        'success'
+      )
+      temp.splice(Item, 1);
+this.ItemAComprar.next(temp);
+  
+localStorage.setItem('ShopCart',JSON.stringify(temp))
+    }
+  })
+
+
 }
+
+
 }
 

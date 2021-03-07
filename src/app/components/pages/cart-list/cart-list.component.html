@@ -9,35 +9,29 @@
                     <span></span>
                 </div>
             </div>
-            <div class="cart-sidebar-body " *ngFor="let item of Items">
-                <div class="cart-sidebar-scroll">
-                    <div class="cart-sidebar-item">
-                        <div class="media">
-                            <a routerLink='/menu-item-v1'><img src="assets/img/prods-sm/1.png" alt="product"></a>
-                            <div class="media-body">
-                                <h5> <a title="Pepperoni">{{item.items.Nombre}}</a> </h5>
-                                <span>{{item.counter}} x {{item.Size.Precio}}$</span>
-                            </div>
-                        </div>
-                        <div class="cart-sidebar-item-meta">
-                            <span>{{item.items.Descripcion}}</span>
+
+            <div class="table-responsive-xl">
+
+                <table class=" table table-bordered justify-content-start">
+
+                    <tbody *ngFor="let item of Items">
 
 
-                        </div>
-                        <div class="cart-sidebar-price">
-                            Lps. {{item.Total}}
-                        </div>
-                        <div class="close-btn">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
+                        <tr>
+
+                            <td>{{item.items.Nombre}}</td>
+                            <td>{{item.counter}}</td>
+                            <td>{{item.Total}}</td>
+                            <td><button type="button" class="btn btn-success" (click)="delete(item)">Success</button></td>
 
 
-
-
-                </div>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+
+
             <div class="cart-sidebar-footer">
                 <h4>Total: <span>299.99$</span> </h4>
                 <a class="btn-custom">Checkout</a>
