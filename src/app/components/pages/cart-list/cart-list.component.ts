@@ -29,7 +29,6 @@ this.shopCart.delete(Item);
     this.shopCart.ItemAComprar.subscribe(data=>{
       
       this.Items = data;
-     console.log('esta es la data',data);
 
     })
 //   let Productos=  JSON.parse(localStorage.getItem('ShopCart'))

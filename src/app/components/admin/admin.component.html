@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div *ngFor="let item of PedidosInfo" class="m-5">
+    <div class="card-header text-center ">
+        <h5>Pedidido # : {{item.id}}</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h5 class="card-title">Nombre: </h5>
+                <p>{{item.Nombre}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Apellidos: </h5>
+                <p>{{item.Apellidos}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Celular: </h5>
+                <p>{{item.Celular}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Dirección: </h5>
+                <p>{{item.Direccion1}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Dirección Alternativa: </h5>
+                <p>{{item.Direccion2}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Correo Electrónico: </h5>
+                <p>{{item.Email}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Fecha de Pedido: </h5>
+                <p>{{item.FechaPedido}}</p>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-xl-5 checkout-billing">
+
+        <div class="table-responsive-xl">
+            <table class="ct-responsive-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Imagen</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    <tr>
+
+                        <td>{{item.items.Nombre}}</td>
+                        <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
+                        <td>Cantidad: {{item.counter}}</td>
+                        <td> Lps. {{item.Size.Precio}}</td>
+                        <td> Total: Lps. {{item.Total}}</td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="card m-5">
+    <a href="#" class="btn btn-primary">Procesar pedido</a>
+</div>
+<app-footer>
+
+</app-footer>

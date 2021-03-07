@@ -59,6 +59,7 @@ import { DireccionesComponent } from './components/pages/direcciones/direcciones
 import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
 import { ItemComponent } from './components/shared/item/item.component';
 import { CartListComponent } from './components/pages/cart-list/cart-list.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +101,7 @@ import { CartListComponent } from './components/pages/cart-list/cart-list.compon
     VerificarCorreoComponent,
     ItemComponent,
     CartListComponent,
+    AdminComponent,
   
     
   ],

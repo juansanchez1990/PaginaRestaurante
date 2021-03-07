@@ -24,6 +24,8 @@ export class MenuOneComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDepartamentos();
+    document.querySelector('router-outlet').scrollTop = 0;
+
   }
 
   getDepartamentos() {

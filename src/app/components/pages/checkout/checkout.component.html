@@ -47,6 +47,10 @@
                             <label>Correo Electrónico<span class="text-danger">*</span></label>
                             <input formControlName="Email" type="email" placeholder="Coloque aquí su correo electrónico" name="email" class="form-control" value="" required="">
                         </div>
+                        <div class="form-group col-xl-6">
+                            <label>Fecha de entrega del pedido<span class="text-danger">*</span></label>
+                            <input formControlName="FechaPedido" type="date" placeholder="Coloque aquí su correo electrónico" name="email" class="form-control" value="" required="">
+                        </div>
                         <div class="form-group col-xl-12 mb-0">
                             <label>Comentarios</label>
                             <textarea formControlName="Comentario" name="name" rows="5" class="form-control" placeholder="Coloque aquí sus comentarios"></textarea>
@@ -88,7 +92,7 @@
 
 
 
-                    <p class="small">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a class="btn-link" href="#">privacy policy.</a> </p>
+                    <p class="small">Tu información ingresada será útil para poder procesar tu pedido, dentro de unos minutos nuestro personal se comunicará contigo para gestionar el método de pago <a class="btn-link">Políticas de privacidad</a> </p>
                     <button [disabled]="RegistroPedido.invalid" type="submit" class="btn-custom primary btn-block">Place Order</button>
 
                     <!-- Order Details End -->

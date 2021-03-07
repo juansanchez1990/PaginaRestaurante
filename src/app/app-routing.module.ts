@@ -18,6 +18,7 @@ import { ForgotPasswordComponent } from './components/pages/forgot-password/forg
 import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
 import { CartListComponent } from './components/pages/cart-list/cart-list.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {
     path:'inicio',component:HomeComponent
   },
+
 { 
     path:'about',component:AboutUsComponent
   },
@@ -67,6 +69,9 @@ const routes: Routes = [
   },
   {
     path:'forgotPasswword',component:ForgotPasswordComponent
+  },
+  {
+    path:'admin',component:AdminComponent
   },
   {
     path:'perfil',component:PerfilComponent
