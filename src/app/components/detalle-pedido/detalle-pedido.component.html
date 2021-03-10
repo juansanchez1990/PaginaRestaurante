@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="card m-5">
+
+    <div class="card-header">
+        <h5 class="text-center">Pedido #: {{ListaPedidos.id}}</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h5 class="card-title">Nombre</h5>
+                <p class="card-text">{{ListaPedidos.infoCliente.Nombre}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Apellidos</h5>
+                <p class="card-text">{{ListaPedidos.infoCliente.Apellidos}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Número de Celular</h5>
+                <p class="card-text">{{ListaPedidos.infoCliente.Celular}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Dirección de envío</h5>
+                <p class="card-text">{{ListaPedidos.infoCliente.Direccion1}}</p>
+            </div>
+            <div class="col">
+                <h5 class="card-title">Dirección opcional</h5>
+                <p class="card-text" *ngIf="ListaPedidos.infoCliente.Direccion2 != null">{{ListaPedidos.infoCliente.Direccion2}}</p>
+                <p class="card-text" *ngIf="ListaPedidos.infoCliente.Direccion2===null">No colocó dirección opcional</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="m-5 justify-content-center  ">
+    <!-- Order Details Start -->
+    <div class="table-responsive-xl">
+        <table class="">
+            <thead>
+                <tr class="text-center">
+
+                    <th>Nombre Producto</th>
+                    <th>Imagen Producto</th>
+                    <th>Cantidad</th>
+                    <th>Tamaño</th>
+                    <th>SubTotal</th>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+
+
+                <tr *ngFor="let item of ListaPedidos.items" class="text-center">
+
+                    <td>{{item.items.Nombre}}</td>
+                    <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
+                    <td>{{item.counter}}</td>
+                    <td>{{item.Size.Size}}</td>
+                    <td>{{item.Total}}</td>
+
+
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-start">
+            <h5>Gran Total {{ListaPedidos.Total | currency:'Lps '}}</h5>
+        </div>
+    </div>
+
+
+
+
+    <!-- Order Details End -->
+
+</div>
+<app-footer></app-footer>

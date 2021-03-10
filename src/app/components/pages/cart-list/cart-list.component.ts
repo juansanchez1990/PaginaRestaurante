@@ -11,11 +11,17 @@ export class CartListComponent implements OnInit, AfterViewInit {
 ProductosCart: Array<Products>;
 Items = [];
 selectedSize = null;
-Total: number;
+Total: number= 0;
+Subtotal: number= 0;
   constructor(private shopCart: ShoppingCartService) { }
 
   ngOnInit()  {
     this.getItems();
+    this.Items.forEach(item=>{
+    this.Subtotal = this.Subtotal + item.Total;
+    })
+    this.Total = this.Subtotal*1.15;
+
   }
 ngAfterViewInit(){
 
@@ -31,11 +37,8 @@ this.shopCart.delete(Item);
       this.Items = data;
 
     })
-//   let Productos=  JSON.parse(localStorage.getItem('ShopCart'))
-//   this.Items = Productos
-  
-//   console.log('datos', this.Items);
-// return this.Items
+
+    
   }
 
 }

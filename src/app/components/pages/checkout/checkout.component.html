@@ -70,7 +70,7 @@
                                     <th>Imagen</th>
                                     <th>Cantidad</th>
                                     <th>Precio</th>
-                                    <th>Total</th>
+                                    <th>Sub-Total</th>
                                 </tr>
                             </thead>
                             <tbody *ngFor="let item of Items">
@@ -81,12 +81,17 @@
                                     <td>{{item.items.Nombre}}</td>
                                     <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
                                     <td>Cantidad: {{item.counter}}</td>
-                                    <td> Lps. {{item.Size.Precio}}</td>
-                                    <td> Total: Lps. {{item.Total}}</td>
+                                    <td> {{item.Size.Precio | currency:'Lps '}}</td>
+                                    <td> {{item.Total | currency:'Lps '}}</td>
 
 
                                 </tr>
+
                             </tbody>
+                            <h5>Sub-Total: {{Subtotal | currency:'Lps. '}} </h5>
+                            <h5>+ Impuesto: 15% </h5>
+                            <h5>____________________________</h5>
+                            <h4>= Total: {{Total | currency:'Lps '}} </h4>
                         </table>
                     </div>
 

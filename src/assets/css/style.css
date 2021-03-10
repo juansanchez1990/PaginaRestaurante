@@ -5544,6 +5544,10 @@ td.quantity {
     .checkout-billing table {
         margin-bottom: 50px;
     }
+    .checkout-billing2 table {
+        margin-bottom: 100px;
+        width: 100%;
+    }
     .ct-category-content-inner {
         padding: 80px 40px 50px;
     }

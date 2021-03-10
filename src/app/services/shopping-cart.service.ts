@@ -13,6 +13,7 @@ export class ShoppingCartService {
   public ItemAComprar = new BehaviorSubject([]);
   public itemLocalStorage : any;
   public dataInLocalStorage:any;
+
   constructor() { 
 
     this.itemLocalStorage= localStorage.getItem('ShopCart');
@@ -20,6 +21,8 @@ export class ShoppingCartService {
       this.ItemAComprar.next(JSON.parse( this.itemLocalStorage));
       
     }
+
+
   }
 
 

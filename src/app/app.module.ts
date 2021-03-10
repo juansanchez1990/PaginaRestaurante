@@ -60,6 +60,7 @@ import { VerificarCorreoComponent } from './components/pages/verificar-correo/ve
 import { ItemComponent } from './components/shared/item/item.component';
 import { CartListComponent } from './components/pages/cart-list/cart-list.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedido.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { AdminComponent } from './components/admin/admin.component';
     ItemComponent,
     CartListComponent,
     AdminComponent,
+    DetallePedidoComponent,
   
     
   ],

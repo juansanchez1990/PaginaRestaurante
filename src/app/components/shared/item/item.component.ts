@@ -52,18 +52,8 @@ export class ItemComponent implements OnInit {
     return this.product.Size.find(i => i.Size === this.selectedSize);
   }
 
-  aggToCart(traerProducto: Products) {
-    // this.productos = traerProducto
-    // if (this.counterValue > 0) {
-    //   let ProductosListo = {
-    //     "ProductoItem": traerProducto,
-    //     "CantidadOrdenada": this.counterValue
-    //   }
-    //   console.log('Este es el producto', this.productos);
-    //   this.counterValue = 1;
-    // this.SumarCarrito.emit(ProductosListo);
-
-  }
+ 
+  
 
   traerProducto(Items) {
 // let url= this.router.url;

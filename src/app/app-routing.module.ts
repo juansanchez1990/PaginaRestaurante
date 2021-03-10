@@ -19,15 +19,17 @@ import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import { VerificarCorreoComponent } from './components/pages/verificar-correo/verificar-correo.component';
 import { CartListComponent } from './components/pages/cart-list/cart-list.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedido.component';
 
 
 const routes: Routes = [
 
-  {
-    path:'',component:HomeComponent
-  },
+
   {
     path:'inicio',component:HomeComponent
+  },
+  {
+    path:'',component:HomeComponent
   },
 
 { 
@@ -65,7 +67,7 @@ const routes: Routes = [
     path:'menu',component:MenuOneComponent
   },
   {
-    path:'menu-item-v1',component:MenuItemOneComponent
+    path:'detallePedido',component:DetallePedidoComponent
   },
   {
     path:'forgotPasswword',component:ForgotPasswordComponent

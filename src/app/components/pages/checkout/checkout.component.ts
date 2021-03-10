@@ -13,13 +13,14 @@ export class CheckoutComponent implements OnInit {
   Nombre = new FormControl('', [Validators.minLength(2), Validators.required]);
   Apellidos = new FormControl('', [Validators.minLength(2), Validators.required]);
   Direccion1 = new FormControl('', [Validators.required]);
-  Direccion2 = new FormControl('', [Validators.required]);
+  Direccion2 = new FormControl('');
   FechaPedido = new FormControl('', [Validators.required]);
   Celular = new FormControl('', [Validators.minLength(8), Validators.maxLength(8), Validators.required, Validators.pattern("^[0-9]*$")]);
   Email = new FormControl('', [Validators.email, Validators.required]);
   Comentario = new FormControl();
   RegistroPedido: FormGroup;
-
+  Total: number= 0;
+  Subtotal: number= 0;
   Items = [];
   constructor(private shopCart: ShoppingCartService, private GenerarPedido: GenerarPedidoService) { }
 
@@ -34,7 +35,6 @@ export class CheckoutComponent implements OnInit {
       Email: this.Email,
       FechaPedido: this.FechaPedido,
       Comentario: this.Comentario,
-      PedidoProcesado: new FormControl(false)
     });
     document.querySelector('router-outlet').scrollTop = 0;
 
@@ -44,6 +44,10 @@ export class CheckoutComponent implements OnInit {
     this.shopCart.ItemAComprar.subscribe(data=>{
       
       this.Items = data;
+      this.Items.forEach(item=>{
+        this.Subtotal = this.Subtotal + item.Total;
+        })
+        this.Total = this.Subtotal*1.15;
      console.log('esta es la data',data);
 
     })
@@ -62,7 +66,7 @@ export class CheckoutComponent implements OnInit {
 
     RegistrarPedido(){
       if (this.RegistroPedido.valid){
-this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items).then(()=>{
+this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.Total).then(()=>{
   this.RegistroPedido.reset();
   this.GenerarPedido.borrarItems();
 }

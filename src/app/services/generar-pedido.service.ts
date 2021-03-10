@@ -5,14 +5,29 @@ import { Observable, BehaviorSubject } from 'rxjs'
   providedIn: 'root'
 })
 export class GenerarPedidoService {
+  InfoPedido: any;
 
   constructor(private afs: AngularFirestore) { 
+
+    this.InfoPedido= localStorage.getItem('PedidosPendientes');
+    if (this.InfoPedido){
+      this.DetallePedido.next(JSON.parse( this.InfoPedido));
+      
+    }
     this.getPedidos();
   }
+ DetallePedido = new BehaviorSubject([]);
  ListadoPedidos = new BehaviorSubject([]);
-  registrarPedido(nuevoRegistro, Productos) {
+  registrarPedido(nuevoRegistro, Productos, Total) {
     var id = this.afs.createId();
-    return this.afs.collection("registroPedidos").doc(id).ref.set(Object.assign(nuevoRegistro, Productos, { id: id }));
+    let pedido = {
+      id: id,
+      items: Productos,
+      Total,
+      infoCliente: nuevoRegistro,
+      PedidoProcesado: false
+    }
+    return this.afs.collection("registroPedidos").doc(id).ref.set(pedido);
 
    
   }
@@ -29,6 +44,12 @@ export class GenerarPedidoService {
 
   actualizar(registroPedido) {
     return this.afs.collection("registroPedidos").doc(registroPedido.id).ref.update(registroPedido);
+   }
+
+   SendDetailPedido(pedido){
+    this.DetallePedido.next(pedido);
+    localStorage.setItem('PedidosPendientes',JSON.stringify(pedido))
+
    }
  
 }
