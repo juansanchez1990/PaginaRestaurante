@@ -32,7 +32,7 @@
 
                     <div class="form-group col-xl-6">
                         <label>Dirección <span class="text-danger">*</span></label>
-                        <input formControlName="Direccion1" type="text" placeholder="Coloque aquí su dirección principal" name="addr-1" class="form-control" value="" required="">
+                        <input formControlName="Direccion1" type="text" placeholder="Coloque aquí su dirección para el envío del producto" name="addr-1" class="form-control" value="" required="">
                     </div>
                     <div class="form-group col-xl-6">
                         <label>Dirección opcional</label>
@@ -98,7 +98,7 @@
 
 
                 <p class="small">Tu información ingresada será útil para poder procesar tu pedido, dentro de unos minutos nuestro personal se comunicará contigo para gestionar el método de pago <a class="btn-link">Políticas de privacidad</a> </p>
-                <button [disabled]="RegistroPedido.invalid" type="submit" class="btn-custom primary btn-block">Place Order</button>
+                <button [disabled]="RegistroPedido.invalid" type="submit" class="btn-custom primary btn-block">Hacer la orden</button>
 
                 <!-- Order Details End -->
 
@@ -109,4 +109,5 @@
 </div>
 
 <!-- Checkout End -->
-<app-footer></app-footer>
+<br>
+<app-footer class="mt-2"></app-footer>
