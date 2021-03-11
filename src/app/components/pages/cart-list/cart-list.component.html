@@ -3,28 +3,36 @@
     <div class="cart-sidebar-wrapper sticky-top">
         <aside class="cart-sidebar ">
             <div class="cart-sidebar-header">
-                <h3>Your Cart</h3>
+                <h3>Tu carrito </h3>
                 <div class="close-btn cart-trigger close-dark">
                     <span></span>
                     <span></span>
                 </div>
             </div>
-
-            <div class="table-responsive-xl">
+            <div class="container vertical-scrollable">
 
                 <table class=" table table-bordered justify-content-start">
-
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
                     <tbody *ngFor="let item of Items">
 
 
-                        <tr>
+                        <tr class="text-center">
 
-                            <td><strong>Producto: </strong> {{item.items.Nombre}}</td>
+                            <td>{{item.items.Nombre}}</td>
                             <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
-                            <td><strong>Cantidad: </strong> Cantidad: {{item.counter}}</td>
-                            <td><strong> Precio:</strong> Lps. {{item.Size.Precio}}</td>
-                            <td> <strong>Total:</strong>Total: Lps. {{item.Total}}</td>
-                            <td><button type="button" class="btn btn-success" (click)="delete(item)">Success</button></td>
+                            <td> {{item.counter}}</td>
+                            <td>Lps. {{item.Size.Precio}}</td>
+                            <td> Lps. {{item.Total}}</td>
+                            <td><button type="button" class="btn btn-success" (click)="delete(item)"><i class="fas fa-trash-alt"></i></button></td>
 
 
                         </tr>
@@ -34,9 +42,11 @@
 
 
 
+
+
             <div class="cart-sidebar-footer">
                 <h4>Total: <span>{{Total | currency:'L '}}</span> </h4>
-                <a routerLink="/checkout" class="btn-custom">Checkout</a>
+                <a routerLink="/checkout" (click)="scrollTop()" class="btn-custom cart-trigger close-dark">Checkout</a>
             </div>
         </aside>
         <div class="cart-sidebar-overlay cart-trigger">

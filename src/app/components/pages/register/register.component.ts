@@ -18,7 +18,8 @@ export class RegisterComponent implements OnInit {
   constructor(private authLoginRegister: LoginService, private router: Router) { }
 
   ngOnInit() {
-    document.querySelector('router-outlet').scrollTop = 0;
+    // document.querySelector('router-outlet').scrollTop = 0;
+    
 
   }
   async onRegister() {
@@ -34,5 +35,10 @@ export class RegisterComponent implements OnInit {
     }
 
   }
-
+  scrollTop() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Other
+  }
+ 
+  
 }

@@ -36,7 +36,7 @@ export class CheckoutComponent implements OnInit {
       FechaPedido: this.FechaPedido,
       Comentario: this.Comentario,
     });
-    document.querySelector('router-outlet').scrollTop = 0;
+   
 
   }
 

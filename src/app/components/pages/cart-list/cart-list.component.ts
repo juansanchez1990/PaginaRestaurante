@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, AfterViewInit} from '@angular/core';
 import { Products } from 'src/app/interfaces/products';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
-import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 export class CartListComponent implements OnInit, AfterViewInit {
 ProductosCart: Array<Products>;
 Items = [];
+
 selectedSize = null;
 Total: number= 0;
 Subtotal: number= 0;
@@ -20,7 +21,7 @@ Subtotal: number= 0;
     this.Items.forEach(item=>{
     this.Subtotal = this.Subtotal + item.Total;
     })
-    this.Total = this.Subtotal*1.15;
+    this.Total = this.Subtotal * 1.15;
 
   }
 ngAfterViewInit(){
@@ -29,6 +30,7 @@ ngAfterViewInit(){
 delete(Item){
 
 this.shopCart.delete(Item);
+
 
 }
   getItems(){
@@ -40,5 +42,9 @@ this.shopCart.delete(Item);
 
     
   }
-
+  scrollTop() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Other
+  }
+ 
 }

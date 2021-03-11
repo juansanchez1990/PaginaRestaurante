@@ -1,51 +1,53 @@
 <app-header class="sticky-top"></app-header>
-<div class="section">
+<section>
+    <div class="section">
 
-    <div class="imgs-wrapper">
-        <img src="assets/img/veg/11.png" alt="veg" class="d-none d-lg-block">
-        <img src="assets/img/prods/3.png" alt="veg" class="d-none d-lg-block">
-    </div>
+        <div class="imgs-wrapper">
+            <img src="assets/img/veg/11.png" alt="veg" class="d-none d-lg-block">
+            <img src="assets/img/prods/3.png" alt="veg" class="d-none d-lg-block">
+        </div>
 
-    <div class="container">
-        <div class="auth-wrapper">
+        <div class="container">
+            <div class="auth-wrapper">
 
-            <div class="auth-description bg-cover bg-center dark-overlay dark-overlay-2" style="background-image: url('assets/img/auth.jpg')">
-                <div class="auth-description-inner">
-                    <i class="flaticon-chili"></i>
-                    <h2>Welcome Back!</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div class="auth-description bg-cover bg-center dark-overlay dark-overlay-2" style="background-image: url('assets/img/auth.jpg')">
+                    <div class="auth-description-inner">
+                        <i class="flaticon-chili"></i>
+                        <h2>Welcome Back!</h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="auth-form">
+                <div class="auth-form">
 
-                <h2>Log in</h2>
-                <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" formControlName="email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" formControlName="password" />
-                    </div>
-                    <button class="btn btn-primary btn-lg btn-block">
+                    <h2>Log in</h2>
+                    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" formControlName="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" formControlName="password" />
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block">
                       Login
                     </button>
-                    <div class="auth-seperator">
-                        <span>OR</span>
-                    </div>
+                        <div class="auth-seperator">
+                            <span>OR</span>
+                        </div>
 
-                    <div class="social-login">
-                        <button (click)="onGoogleLogin()" type="button" class="ct-social-login google"><i class="fab fa-google"></i> Iniciar sesión con Google</button>
-                    </div>
+                        <div class="social-login">
+                            <button (click)="onGoogleLogin()" type="button" class="ct-social-login google"><i class="fab fa-google"></i> Iniciar sesión con Google</button>
+                        </div>
 
-                    <p>No tienes una cuenta? <a routerLink='/register'>Regístrate</a> </p>
-                    <p>Olvidaste tu contraseña? <a routerLink='/forgotPasswword'>Recupérala aquí</a> </p>
-                </form>
+                        <p>No tienes una cuenta? <a routerLink='/register'>Regístrate</a> </p>
+                        <p>Olvidaste tu contraseña? <a routerLink='/forgotPasswword'>Recupérala aquí</a> </p>
+                    </form>
+                </div>
+
             </div>
-
         </div>
     </div>
-</div>
+</section>
 <app-footer></app-footer>
 <!-- Login Form End -->

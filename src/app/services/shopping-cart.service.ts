@@ -31,6 +31,13 @@ addShoppingCart (Item){
   let temp = this.ItemAComprar.getValue();
 temp.push(Item);
 this.ItemAComprar.next(temp);
+Swal.fire({
+  position: 'center',
+  icon: 'success',
+  title: `Añadiste a ${Item.items.Nombre} a tu carrito de compras`,
+  showConfirmButton: false,
+  timer: 1500
+})
   
 localStorage.setItem('ShopCart',JSON.stringify(temp))
 
@@ -46,12 +53,13 @@ delete(Item){
 
 
   Swal.fire({
-    title: 'Desea eliminar este producto?',
+    title: `Desea eliminar a ${Item.items.Nombre}?`,
     text: "Esta operación no se puede revertir!",
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
+    cancelButtonText: 'Cancelar',
     confirmButtonText: 'Si, eliminar'
   }).then((result) => {
     if (result.isConfirmed) {
@@ -63,8 +71,9 @@ delete(Item){
       temp.splice(Item, 1);
 this.ItemAComprar.next(temp);
   
-localStorage.setItem('ShopCart',JSON.stringify(temp))
-    }
+localStorage.setItem('ShopCart',JSON.stringify(temp));
+this.itemLocalStorage= localStorage.getItem('ShopCart');
+}
   })
 
 
