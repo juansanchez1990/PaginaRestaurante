@@ -58,37 +58,26 @@
                         <li *ngIf="IsLogged">
                             <!-- <a style=" cursor: pointer;"> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a> -->
                             <div class="dropdown">
-                                <div *ngIf="user.displayName != null">
-                                    <button type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.displayName}}</button>
-                                    <img class="d-block d-sm-block d-md-none" [src]="user.photoURL" class="img-thumbnail imagePerfil" alt="...">
+                                <div>
+                                    <button type="button" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.email}}</button>
 
                                     <div class="dropdown-menu" aria-labelledby="menu1">
                                         <a routerLink='/perfil' class="dropdown-item">
                                             <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
                                         </a>
-                                        <a routerLink='/cart' class="dropdown-item">
+                                        <a routerLink='/checkout' class="dropdown-item">
                                             <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i>
                                             </h5>
                                         </a>
-                                        <a routerLink='/admin' class="dropdown-item">
+                                        <a *ngIf="user?.IsAdmin" routerLink='/admin' class="dropdown-item">
                                             <h5 style="color: white;">Admin <i class="fas fa-users-cog"></i>
                                             </h5>
                                         </a>
 
                                     </div>
                                 </div>
-                                <div *ngIf="user.displayName == null">
-                                    <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="button" class="btn btn-danger dropdown-toggle m-1">Bienvenido {{user.email}}</button>
-                                </div>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a routerLink='/perfil' class="dropdown-item">
-                                        <h5 style="color: white;">Ir a Perfil <i class="fas fa-user m-2"></i> </h5>
-                                    </a>
-                                    <a routerLink='/cart' class="dropdown-item">
-                                        <h5 style="color: white;">Ir al Carrito <i class="fas fa-cart-plus m-2"></i> </h5>
-                                    </a>
 
-                                </div>
+
                             </div>
                         </li>
                     </ul>

@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
     document.querySelector('router-outlet').scrollTop = 0;
 
   }
-
+  scrollTop() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Other
+  }
+ 
  async onGoogleLogin(){
    try{
 
