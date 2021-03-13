@@ -58,15 +58,14 @@ this.CalcularTotal();
 
   CalcularTotal(){
     
-    this.Subtotal = 0;
   this.TotalGeneral = 0;
   if (this.Items.length > 0) {
 
     this.Items.forEach(item => {
-      this.Subtotal = this.Subtotal + item.Subtotal;
+      this.TotalGeneral = this.Subtotal + item.Subtotal;
     });
 
-    this.TotalGeneral = (this.Subtotal * 1.15 ) + this.Envio;
+    this.TotalGeneral = (this.TotalGeneral * 1.15 ) + this.Envio;
   }
 }
 
