@@ -60,13 +60,13 @@
                 <!-- /Buyer Info -->
 
             </div>
-            <div class="col-xl-5 checkout-billing">
+            <div class="col-xl-5 ">
                 <!-- Order Details Start -->
                 <div class="table-responsive-xl">
-                    <table class="ct-responsive-table">
+                    <table>
                         <thead>
                             <tr>
-                                <th>Product</th>
+                                <th>Producto</th>
                                 <th>Imagen</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
@@ -80,7 +80,7 @@
 
                                 <td>{{item.items.Nombre}}</td>
                                 <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
-                                <td>Cantidad: {{item.counter}}</td>
+                                <td>{{item.counter}}</td>
                                 <td> {{item.Size.Precio | currency:'Lps '}}</td>
                                 <td> {{item.Subtotal | currency:'Lps '}}</td>
 
@@ -88,7 +88,7 @@
                             </tr>
 
                         </tbody>
-                        <h5>Sub-Total: {{Subtotal | currency:'Lps. '}} </h5>
+                        <h5>Sub-Total: {{SubtotalGeneral | currency:'Lps. '}} </h5>
                         <h5>+ Impuesto: 15% </h5>
                         <h5>____________________________</h5>
                         <h4>= Total: {{TotalGeneral | currency:'Lps '}} </h4>

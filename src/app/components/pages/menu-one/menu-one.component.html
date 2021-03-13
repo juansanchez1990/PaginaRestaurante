@@ -18,16 +18,18 @@
 <!-- Subheader End -->
 
 <!-- Menu Categories Start -->
-<div class="ct-menu-categories menu-filter">
-    <div class="menu-category-slider d-flex justify-content-center">
-        <a (click)="seleccionarDepartamento(departamentos)" *ngFor="let departamentos of Departamentos" class="ct-menu-category-item m-3 ">
-            <div class="menu-category-thumb">
-                <img [src]="departamentos.img" alt="category">
-            </div>
-            <div class="menu-category-desc">
-                <h6>{{departamentos.Nombre}}</h6>
-            </div>
-        </a>
+<div class="ct-menu-categories menu-filter overFlow">
+    <div class="container">
+        <div class="menu-category-slider d-flex justify-content-center">
+            <a (click)="seleccionarDepartamento(departamentos)" *ngFor="let departamentos of Departamentos" class="ct-menu-category-item m-3 ">
+                <div class="menu-category-thumb">
+                    <img [src]="departamentos.img" alt="category">
+                </div>
+                <div class="menu-category-desc">
+                    <h6>{{departamentos.Nombre}}</h6>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 

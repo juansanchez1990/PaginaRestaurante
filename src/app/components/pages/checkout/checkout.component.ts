@@ -21,6 +21,7 @@ export class CheckoutComponent implements OnInit {
   RegistroPedido: FormGroup;
   TotalGeneral: number= 0;
   Subtotal: number= 0;
+  SubtotalGeneral: number= 0;
   Items = [];
   Envio = 0;
 
@@ -62,7 +63,8 @@ this.CalcularTotal();
   if (this.Items.length > 0) {
 
     this.Items.forEach(item => {
-      this.TotalGeneral = this.Subtotal + item.Subtotal;
+      this.SubtotalGeneral = this.SubtotalGeneral + item.Subtotal;
+      this.TotalGeneral = this.TotalGeneral + item.Subtotal;
     });
 
     this.TotalGeneral = (this.TotalGeneral * 1.15 ) + this.Envio;

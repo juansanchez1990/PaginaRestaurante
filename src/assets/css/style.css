@@ -4937,6 +4937,24 @@ td.quantity {
     border: 7px solid rgba(255, 255, 255, .2);
 }
 
+
+/* 
+@media only screen and (min-width: 300px) and (max-width: 600px) {
+    .menu-category-thumb {
+        width: 50px;
+        border-radius: 25%;
+        margin: 0 auto;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        margin-bottom: 10px;
+        border: 4px solid rgba(255, 255, 255, .2);
+    }
+    .menu-category-desc h6 {
+        font-size: 10px;
+    }
+} */
+
 .ct-menu-category-item:hover .menu-category-thumb,
 .ct-menu-category-item.active .menu-category-thumb {
     border-color: #fff;
