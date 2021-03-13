@@ -9,25 +9,27 @@ import Swal from 'sweetalert2';
 
 export class ShoppingCartService {
  
-
+  public Total = 0;
   public ItemAComprar = new BehaviorSubject([]);
   public itemLocalStorage : any;
   public dataInLocalStorage:any;
-
+  public TotalCheckOut: number;
   constructor() { 
-
     this.itemLocalStorage= localStorage.getItem('ShopCart');
     if (this.itemLocalStorage){
       this.ItemAComprar.next(JSON.parse( this.itemLocalStorage));
       
     }
-
-
+   
   }
-
-
+  
+ 
+ 
 
 addShoppingCart (Item){
+  console.log("Item llegando", Item);
+
+
   let temp = this.ItemAComprar.getValue();
 temp.push(Item);
 this.ItemAComprar.next(temp);
@@ -78,6 +80,9 @@ this.itemLocalStorage= localStorage.getItem('ShopCart');
 
 
 }
+
+
+
 
 
 }

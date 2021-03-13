@@ -13,11 +13,13 @@ export class ItemComponent implements OnInit {
   public counter: number = 0;
   selectedSize = null;
   hayCantidad: boolean = false
-
+  SubTotal = 0;
+  Envio = 0;
+  TotalGeneral = 0;
+Items: any;
   constructor(private shopCart: ShoppingCartService, private router: Router) { }
 
   ngOnInit(): void {
-
     this.selectedSize = this.product.Size[0].Size;
     if (this.counter === 0) {
       this.hayCantidad = false
@@ -57,19 +59,21 @@ export class ItemComponent implements OnInit {
 
   traerProducto(Items) {
 // let url= this.router.url;
-
 let counter = this.counter
-let precio = this.getPrice();
-    let Item={
-      items : Items,
-      Size: this.getPrice(),
-      counter,
-      Total : precio.Precio * counter,
-   
 
-    }
-
+let Item={
+  items : Items,
+  Size: this.getPrice(),
+  counter,
+  Subtotal : this.getPrice().Precio * this.counter
+  
+  
+}
 this.shopCart.addShoppingCart(Item);
+this.Items = Item;
   }
+
+
+ 
 
 }

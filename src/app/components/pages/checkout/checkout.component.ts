@@ -19,9 +19,11 @@ export class CheckoutComponent implements OnInit {
   Email = new FormControl('', [Validators.email, Validators.required]);
   Comentario = new FormControl();
   RegistroPedido: FormGroup;
-  Total: number= 0;
+  TotalGeneral: number= 0;
   Subtotal: number= 0;
   Items = [];
+  Envio = 0;
+
   constructor(private shopCart: ShoppingCartService, private GenerarPedido: GenerarPedidoService) { }
 
   ngOnInit() {
@@ -36,20 +38,16 @@ export class CheckoutComponent implements OnInit {
       FechaPedido: this.FechaPedido,
       Comentario: this.Comentario,
     });
-   
-
+    
   }
 
     getItems(){
     this.shopCart.ItemAComprar.subscribe(data=>{
       
       this.Items = data;
-      this.Items.forEach(item=>{
-        this.Subtotal = this.Subtotal + item.Total;
-        })
-        this.Total = this.Subtotal*1.15;
-     console.log('esta es la data',data);
 
+     console.log('esta es la data',data);
+this.CalcularTotal();
     })
 //   let Productos=  JSON.parse(localStorage.getItem('ShopCart'))
 //   this.Items = Productos
@@ -57,6 +55,20 @@ export class CheckoutComponent implements OnInit {
 //   console.log('datos', this.Items);
 // return this.Items
   }
+
+  CalcularTotal(){
+    
+    this.Subtotal = 0;
+  this.TotalGeneral = 0;
+  if (this.Items.length > 0) {
+
+    this.Items.forEach(item => {
+      this.Subtotal = this.Subtotal + item.Subtotal;
+    });
+
+    this.TotalGeneral = (this.Subtotal * 1.15 ) + this.Envio;
+  }
+}
 
   delete(Item){
 
@@ -66,7 +78,7 @@ export class CheckoutComponent implements OnInit {
 
     RegistrarPedido(){
       if (this.RegistroPedido.valid){
-this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.Total).then(()=>{
+this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.TotalGeneral).then(()=>{
   this.RegistroPedido.reset();
   this.GenerarPedido.borrarItems();
 }

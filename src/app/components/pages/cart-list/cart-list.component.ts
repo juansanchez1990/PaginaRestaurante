@@ -10,7 +10,9 @@ import { ShoppingCartService } from '../../../services/shopping-cart.service';
 export class CartListComponent implements OnInit, AfterViewInit {
 ProductosCart: Array<Products>;
 Items = [];
-
+SubTotal = 0;
+Envio = 0;
+TotalGeneral = 0;
 selectedSize = null;
 Total: number= 0;
 Subtotal: number= 0;
@@ -18,14 +20,11 @@ Subtotal: number= 0;
 
   ngOnInit()  {
     this.getItems();
-    this.Items.forEach(item=>{
-    this.Subtotal = this.Subtotal + item.Total;
-    })
-    this.Total = this.Subtotal * 1.15;
+    // this.Total = this.Subtotal * 1.15;
 
   }
 ngAfterViewInit(){
-
+ 
 }
 delete(Item){
 
@@ -37,11 +36,26 @@ this.shopCart.delete(Item);
     this.shopCart.ItemAComprar.subscribe(data=>{
       
       this.Items = data;
-
+this.CalcularTotal();
     })
 
     
   }
+
+  CalcularTotal(){
+    
+    this.SubTotal = 0;
+  this.TotalGeneral = 0;
+  if (this.Items.length > 0) {
+
+    this.Items.forEach(item => {
+      this.SubTotal = this.SubTotal + item.Subtotal;
+    });
+
+    this.TotalGeneral = this.SubTotal + this.Envio;
+  }
+}
+
   scrollTop() {
     document.body.scrollTop = 0; // Safari
     document.documentElement.scrollTop = 0; // Other

@@ -31,7 +31,7 @@
                             <td><img [src]="item.items.Imagen" class="Imagen " alt="..."></td>
                             <td> {{item.counter}}</td>
                             <td>Lps. {{item.Size.Precio}}</td>
-                            <td> Lps. {{item.Total}}</td>
+                            <td> Lps. {{item.Subtotal}}</td>
                             <td><button type="button" class="btn btn-success" (click)="delete(item)"><i class="fas fa-trash-alt"></i></button></td>
 
 
@@ -45,7 +45,7 @@
 
 
             <div class="cart-sidebar-footer">
-                <h4>Total: <span>{{Total | currency:'L '}}</span> </h4>
+                <h4>Total: <span>{{TotalGeneral | currency:'L '}}</span> </h4>
                 <a routerLink="/checkout" (click)="scrollTop()" class="btn-custom cart-trigger close-dark">Checkout</a>
             </div>
         </aside>
