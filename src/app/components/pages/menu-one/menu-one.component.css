@@ -1,4 +1,4 @@
 .overFlow {
     overflow-x: auto;
-    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
 }
