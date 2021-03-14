@@ -9,7 +9,7 @@
         <table class="">
             <thead>
                 <tr class="text-center">
-                    <th>Pedido #</th>
+                    <th>ID Pedido </th>
                     <th>Nombre</th>
                     <th>Apellidos</th>
                     <th>Fecha entrega</th>
@@ -24,7 +24,7 @@
 
                 <tr class="text-center" *ngFor="let item of PedidosInfo">
 
-                    <td> {{item.id}}</td>
+                    <td> {{item.id | slice:0:4}}</td>
                     <td>{{item.infoCliente.Nombre}}</td>
                     <td>{{item.infoCliente.Apellidos}}</td>
                     <td> {{item.infoCliente.FechaPedido}}</td>

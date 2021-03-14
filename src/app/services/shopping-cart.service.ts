@@ -27,7 +27,6 @@ export class ShoppingCartService {
  
 
 addShoppingCart (Item){
-  console.log("Item llegando", Item);
 
 
   let temp = this.ItemAComprar.getValue();

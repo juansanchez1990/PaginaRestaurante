@@ -20,10 +20,10 @@ export class CheckoutComponent implements OnInit {
   Comentario = new FormControl();
   RegistroPedido: FormGroup;
   TotalGeneral: number= 0;
-  Subtotal: number= 0;
   SubtotalGeneral: number= 0;
   Items = [];
   Envio = 0;
+  IdPedido: any;
 
   constructor(private shopCart: ShoppingCartService, private GenerarPedido: GenerarPedidoService) { }
 
@@ -46,9 +46,11 @@ export class CheckoutComponent implements OnInit {
     this.shopCart.ItemAComprar.subscribe(data=>{
       
       this.Items = data;
+      
 
      console.log('esta es la data',data);
 this.CalcularTotal();
+this.CalcularSubTotal();
     })
 //   let Productos=  JSON.parse(localStorage.getItem('ShopCart'))
 //   this.Items = Productos
@@ -68,6 +70,18 @@ this.CalcularTotal();
     });
 
     this.TotalGeneral = (this.TotalGeneral * 1.15 ) + this.Envio;
+  }
+}
+
+CalcularSubTotal(){
+    
+ let Subtotal = 0;
+  if (this.Items.length > 0) {
+
+    this.Items.forEach(item => {
+      Subtotal = Subtotal + item.Subtotal;
+    });
+this.SubtotalGeneral = Subtotal;
   }
 }
 

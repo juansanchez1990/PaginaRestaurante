@@ -13,13 +13,16 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
    this.Pedidos.ListadoPedidos.subscribe(data=>{
+     
      this.PedidosInfo =data;
    
    })
   }
 
   enviarPedido(pedido){
-    this.Pedidos.SendDetailPedido(pedido);
+   var IdPedido =  pedido.id
+    this.Pedidos.SendDetailPedido(pedido, IdPedido);
+    
   }
   Actualizar(item){
  

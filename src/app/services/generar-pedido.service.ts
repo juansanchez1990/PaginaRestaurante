@@ -18,6 +18,7 @@ export class GenerarPedidoService {
   }
  DetallePedido = new BehaviorSubject([]);
  ListadoPedidos = new BehaviorSubject([]);
+ IdPedido: any;
   registrarPedido(nuevoRegistro, Productos, Total) {
     var id = this.afs.createId();
     let pedido = {
@@ -34,6 +35,7 @@ export class GenerarPedidoService {
 
   getPedidos() {
     this.afs.collection("registroPedidos", ref => ref.where('PedidoProcesado', '==', false)).valueChanges().subscribe(data => {
+   
       this.ListadoPedidos.next(data);
     })
   }
@@ -46,9 +48,11 @@ export class GenerarPedidoService {
     return this.afs.collection("registroPedidos").doc(registroPedido.id).ref.update(registroPedido);
    }
 
-   SendDetailPedido(pedido){
+   SendDetailPedido(pedido, IdPedido){
+
     this.DetallePedido.next(pedido);
-    localStorage.setItem('PedidosPendientes',JSON.stringify(pedido))
+    this.IdPedido.next(IdPedido);
+    localStorage.setItem('PedidosPendientes',JSON.stringify(pedido, IdPedido))
 
    }
  

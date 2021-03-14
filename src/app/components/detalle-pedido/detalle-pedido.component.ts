@@ -11,9 +11,11 @@ ListaPedidos :any ;
   constructor( public Pedido: GenerarPedidoService) { }
 
   ngOnInit() {
+    console.log("IdPedido",this.Pedido.IdPedido); 
     this.Pedido.DetallePedido.subscribe(data=>{
       this.ListaPedidos = data;
     })
+ 
   }
 
 }

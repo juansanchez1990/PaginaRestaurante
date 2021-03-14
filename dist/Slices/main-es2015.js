@@ -6816,7 +6816,7 @@ function CheckoutComponent_tbody_72_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "td");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "img", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7);
@@ -6838,7 +6838,7 @@ function CheckoutComponent_tbody_72_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("src", item_r1.items.Imagen, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Cantidad: ", item_r1.counter, "");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](item_r1.counter);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](10, 5, item_r1.Size.Precio, "Lps "), "");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
@@ -6857,7 +6857,7 @@ class CheckoutComponent {
         this.Email = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required]);
         this.Comentario = new _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControl"]();
         this.TotalGeneral = 0;
-        this.Subtotal = 0;
+        this.SubtotalGeneral = 0;
         this.Items = [];
         this.Envio = 0;
     }
@@ -6879,6 +6879,7 @@ class CheckoutComponent {
             this.Items = data;
             console.log('esta es la data', data);
             this.CalcularTotal();
+            this.CalcularSubTotal();
         });
         //   let Productos=  JSON.parse(localStorage.getItem('ShopCart'))
         //   this.Items = Productos
@@ -6889,9 +6890,19 @@ class CheckoutComponent {
         this.TotalGeneral = 0;
         if (this.Items.length > 0) {
             this.Items.forEach(item => {
-                this.TotalGeneral = this.Subtotal + item.Subtotal;
+                this.SubtotalGeneral = this.SubtotalGeneral + item.Subtotal;
+                this.TotalGeneral = this.TotalGeneral + item.Subtotal;
             });
             this.TotalGeneral = (this.TotalGeneral * 1.15) + this.Envio;
+        }
+    }
+    CalcularSubTotal() {
+        let Subtotal = 0;
+        if (this.Items.length > 0) {
+            this.Items.forEach(item => {
+                Subtotal = Subtotal + item.Subtotal;
+            });
+            this.SubtotalGeneral = Subtotal;
         }
     }
     delete(Item) {
@@ -6907,7 +6918,7 @@ class CheckoutComponent {
     }
 }
 CheckoutComponent.ɵfac = function CheckoutComponent_Factory(t) { return new (t || CheckoutComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_shopping_cart_service__WEBPACK_IMPORTED_MODULE_2__["ShoppingCartService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_generar_pedido_service__WEBPACK_IMPORTED_MODULE_3__["GenerarPedidoService"])); };
-CheckoutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CheckoutComponent, selectors: [["app-checkout"]], decls: 91, vars: 11, consts: [[1, "container"], [3, "formGroup", "ngSubmit"], [1, "row"], [1, "col-xl-7"], [1, "ct-notice"], ["routerLink", "/login"], [1, "form-group", "col-xl-6"], [1, "text-danger"], ["formControlName", "Nombre", "type", "text", "placeholder", "Coloque aqu\u00ED sus nombres", "name", "fname", "value", "", "required", "", 1, "form-control"], ["formControlName", "Apellidos", "type", "text", "placeholder", "Coloque aqu\u00ED sus apellidos", "name", "lname", "value", "", "required", "", 1, "form-control"], ["formControlName", "Direccion1", "type", "text", "placeholder", "Coloque aqu\u00ED su direcci\u00F3n para el env\u00EDo del producto", "name", "addr-1", "value", "", "required", "", 1, "form-control"], ["formControlName", "Direccion2", "type", "text", "placeholder", "Coloque aqu\u00ED su direcci\u00F3n opcional", "name", "addr-1", "value", "", 1, "form-control"], ["formControlName", "Celular", "type", "text", "placeholder", "Coloque aqu\u00ED su n\u00FAmero de celular", "name", "phone", "value", "", "required", "", 1, "form-control"], ["formControlName", "Email", "type", "email", "placeholder", "Coloque aqu\u00ED su correo electr\u00F3nico", "name", "email", "value", "", "required", "", 1, "form-control"], ["formControlName", "FechaPedido", "type", "date", "placeholder", "Coloque aqu\u00ED su correo electr\u00F3nico", "name", "email", "value", "", "required", "", 1, "form-control"], [1, "form-group", "col-xl-12", "mb-0"], ["formControlName", "Comentario", "name", "name", "rows", "5", "placeholder", "Coloque aqu\u00ED sus comentarios", 1, "form-control"], [1, "col-xl-5", "checkout-billing"], [1, "table-responsive-xl"], [1, "ct-responsive-table"], [4, "ngFor", "ngForOf"], [1, "small"], [1, "btn-link"], ["type", "submit", 1, "btn-custom", "primary", "btn-block", 3, "disabled"], [1, "mt-2"], ["alt", "...", 1, "Imagen", 3, "src"]], template: function CheckoutComponent_Template(rf, ctx) { if (rf & 1) {
+CheckoutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CheckoutComponent, selectors: [["app-checkout"]], decls: 91, vars: 11, consts: [[1, "container"], [3, "formGroup", "ngSubmit"], [1, "row"], [1, "col-xl-7"], [1, "ct-notice"], ["routerLink", "/login"], [1, "form-group", "col-xl-6"], [1, "text-danger"], ["formControlName", "Nombre", "type", "text", "placeholder", "Coloque aqu\u00ED sus nombres", "name", "fname", "value", "", "required", "", 1, "form-control"], ["formControlName", "Apellidos", "type", "text", "placeholder", "Coloque aqu\u00ED sus apellidos", "name", "lname", "value", "", "required", "", 1, "form-control"], ["formControlName", "Direccion1", "type", "text", "placeholder", "Coloque aqu\u00ED su direcci\u00F3n para el env\u00EDo del producto", "name", "addr-1", "value", "", "required", "", 1, "form-control"], ["formControlName", "Direccion2", "type", "text", "placeholder", "Coloque aqu\u00ED su direcci\u00F3n opcional", "name", "addr-1", "value", "", 1, "form-control"], ["formControlName", "Celular", "type", "text", "placeholder", "Coloque aqu\u00ED su n\u00FAmero de celular", "name", "phone", "value", "", "required", "", 1, "form-control"], ["formControlName", "Email", "type", "email", "placeholder", "Coloque aqu\u00ED su correo electr\u00F3nico", "name", "email", "value", "", "required", "", 1, "form-control"], ["formControlName", "FechaPedido", "type", "date", "placeholder", "Coloque aqu\u00ED su correo electr\u00F3nico", "name", "email", "value", "", "required", "", 1, "form-control"], [1, "form-group", "col-xl-12", "mb-0"], ["formControlName", "Comentario", "name", "name", "rows", "5", "placeholder", "Coloque aqu\u00ED sus comentarios", 1, "form-control"], [1, "col-xl-5"], [1, "table-responsive-xl"], [4, "ngFor", "ngForOf"], [1, "small"], [1, "btn-link"], ["type", "submit", 1, "btn-custom", "primary", "btn-block", 3, "disabled"], [1, "mt-2"], ["alt", "...", 1, "Imagen", 3, "src"]], template: function CheckoutComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "form", 1);
@@ -6996,11 +7007,11 @@ CheckoutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "div", 17);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "div", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "table", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](59, "table");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "thead");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](61, "tr");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "th");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, "Product");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, "Producto");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](64, "th");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](65, "Imagen");
@@ -7016,7 +7027,7 @@ CheckoutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](72, CheckoutComponent_tbody_72_Template, 14, 11, "tbody", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](72, CheckoutComponent_tbody_72_Template, 14, 11, "tbody", 19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](73, "h5");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](74);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](75, "currency");
@@ -7033,13 +7044,13 @@ CheckoutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](83, "p", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](83, "p", 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](84, "Tu informaci\u00F3n ingresada ser\u00E1 \u00FAtil para poder procesar tu pedido, dentro de unos minutos nuestro personal se comunicar\u00E1 contigo para gestionar el m\u00E9todo de pago ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "a", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "a", 21);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](86, "Pol\u00EDticas de privacidad");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "button", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "button", 22);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](88, "Hacer la orden");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -7047,14 +7058,14 @@ CheckoutComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](89, "br");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](90, "app-footer", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](90, "app-footer", 23);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("formGroup", ctx.RegistroPedido);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](70);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.Items);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Sub-Total: ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](75, 5, ctx.Subtotal, "Lps. "), " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Sub-Total: ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](75, 5, ctx.SubtotalGeneral, "Lps. "), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("= Total: ", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](82, 8, ctx.TotalGeneral, "Lps "), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
@@ -11867,10 +11878,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function MenuOneComponent_a_18_Template(rf, ctx) { if (rf & 1) {
+function MenuOneComponent_a_19_Template(rf, ctx) { if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "a", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuOneComponent_a_18_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const departamentos_r2 = ctx.$implicit; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.seleccionarDepartamento(departamentos_r2); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function MenuOneComponent_a_19_Template_a_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4); const departamentos_r2 = ctx.$implicit; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r3.seleccionarDepartamento(departamentos_r2); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "img", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -11887,7 +11898,7 @@ function MenuOneComponent_a_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](departamentos_r2.Nombre);
 } }
-function MenuOneComponent_div_22_Template(rf, ctx) { if (rf & 1) {
+function MenuOneComponent_div_23_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-item", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -11959,7 +11970,7 @@ class MenuOneComponent {
     }
 }
 MenuOneComponent.ɵfac = function MenuOneComponent_Factory(t) { return new (t || MenuOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_departamentos_service_service__WEBPACK_IMPORTED_MODULE_2__["DepartamentosService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_products_service__WEBPACK_IMPORTED_MODULE_3__["ProductsService"])); };
-MenuOneComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MenuOneComponent, selectors: [["app-menu-one"]], outputs: { SumarCarrito: "SumarCarrito" }, decls: 24, vars: 2, consts: [[1, "subheader", "dark-overlay", "dark-overlay-2", 2, "background-image", "url('assets/img/subheader.jpg')"], [1, "container"], [1, "subheader-inner"], ["aria-label", "breadcrumb"], [1, "breadcrumb"], [1, "breadcrumb-item"], ["href", "#"], ["aria-current", "page", 1, "breadcrumb-item", "active"], [1, "ct-menu-categories", "menu-filter"], [1, "menu-category-slider", "d-flex", "justify-content-center"], ["class", "ct-menu-category-item m-3 ", 3, "click", 4, "ngFor", "ngForOf"], [1, "d-flex", "justify-content-center"], [1, "container", "m-5"], [1, "row"], ["class", "col-lg-4 col-md-12 ", 4, "ngFor", "ngForOf"], [1, "ct-menu-category-item", "m-3", 3, "click"], [1, "menu-category-thumb"], ["alt", "category", 3, "src"], [1, "menu-category-desc"], [1, "col-lg-4", "col-md-12"], [3, "product"]], template: function MenuOneComponent_Template(rf, ctx) { if (rf & 1) {
+MenuOneComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MenuOneComponent, selectors: [["app-menu-one"]], outputs: { SumarCarrito: "SumarCarrito" }, decls: 25, vars: 2, consts: [[1, "subheader", "dark-overlay", "dark-overlay-2", 2, "background-image", "url('assets/img/subheader.jpg')"], [1, "container"], [1, "subheader-inner"], ["aria-label", "breadcrumb"], [1, "breadcrumb"], [1, "breadcrumb-item"], ["href", "#"], ["aria-current", "page", 1, "breadcrumb-item", "active"], [1, "ct-menu-categories", "menu-filter", "overFlow"], [1, "menu-category-slider", "d-flex", "justify-content-center"], ["class", "ct-menu-category-item m-3 ", 3, "click", 4, "ngFor", "ngForOf"], [1, "d-flex", "justify-content-center"], [1, "container", "m-5"], [1, "row"], ["class", "col-lg-4 col-md-12 ", 4, "ngFor", "ngForOf"], [1, "ct-menu-category-item", "m-3", 3, "click"], [1, "menu-category-thumb"], ["alt", "category", 3, "src"], [1, "menu-category-desc"], [1, "col-lg-4", "col-md-12"], [3, "product"]], template: function MenuOneComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-header");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 1);
@@ -11988,24 +11999,26 @@ MenuOneComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineC
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "div", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, MenuOneComponent_a_18_Template, 6, 2, "a", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "div", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](22, MenuOneComponent_div_22_Template, 2, 1, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, MenuOneComponent_a_19_Template, 6, 2, "a", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](23, "app-footer");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "div", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "div", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](23, MenuOneComponent_div_23_Template, 2, 1, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "app-footer");
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.Departamentos);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.getProductosPorDepartamento());
-    } }, directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"], _shared_item_item_component__WEBPACK_IMPORTED_MODULE_7__["ItemComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcGFnZXMvbWVudS1vbmUvbWVudS1vbmUuY29tcG9uZW50LmNzcyJ9 */"] });
+    } }, directives: [_layouts_header_header_component__WEBPACK_IMPORTED_MODULE_4__["HeaderComponent"], _angular_common__WEBPACK_IMPORTED_MODULE_5__["NgForOf"], _layouts_footer_footer_component__WEBPACK_IMPORTED_MODULE_6__["FooterComponent"], _shared_item_item_component__WEBPACK_IMPORTED_MODULE_7__["ItemComponent"]], styles: [".overFlow[_ngcontent-%COMP%] {\n    overflow-x: auto;\n    -webkit-overflow-scrolling: touch;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wYWdlcy9tZW51LW9uZS9tZW51LW9uZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksZ0JBQWdCO0lBQ2hCLGlDQUFpQztBQUNyQyIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcGFnZXMvbWVudS1vbmUvbWVudS1vbmUuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5vdmVyRmxvdyB7XG4gICAgb3ZlcmZsb3cteDogYXV0bztcbiAgICAtd2Via2l0LW92ZXJmbG93LXNjcm9sbGluZzogdG91Y2g7XG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MenuOneComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
