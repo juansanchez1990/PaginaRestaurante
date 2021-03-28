@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
   Items = [];
   Envio = 0;
   IdPedido: any;
-
+  NumeroPedido: any;
   constructor(private shopCart: ShoppingCartService, private GenerarPedido: GenerarPedidoService) { }
 
   ngOnInit() {
@@ -39,7 +39,10 @@ export class CheckoutComponent implements OnInit {
       FechaPedido: this.FechaPedido,
       Comentario: this.Comentario,
     });
-    
+
+    this.GenerarPedido.NumeroPedidos.subscribe(data=>{
+this.NumeroPedido = data    })
+console.log("numero Pedido", this.NumeroPedido);
   }
 
     getItems(){
@@ -93,7 +96,8 @@ this.SubtotalGeneral = Subtotal;
 
     RegistrarPedido(){
       if (this.RegistroPedido.valid){
-this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.TotalGeneral).then(()=>{
+        this.NumeroPedido= this.NumeroPedido +1;
+this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.TotalGeneral, this.NumeroPedido).then(()=>{
   this.RegistroPedido.reset();
   this.GenerarPedido.borrarItems();
 }
