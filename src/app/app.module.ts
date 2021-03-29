@@ -52,6 +52,7 @@ import { PerfilComponent } from './components/pages/perfil/perfil.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatFormFieldModule  } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -109,6 +110,7 @@ import { DetallePedidoComponent } from './components/detalle-pedido/detalle-pedi
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     LeafletModule,
     BrowserAnimationsModule,

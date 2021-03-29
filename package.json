@@ -27,9 +27,14 @@
     "angular-input-counter": "^0.1.0",
     "angular-responsive-carousel": "^2.0.2",
     "animate.css": "^4.1.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "firebase": "^8.2.5",
     "leaflet": "^1.6.0",
     "ngx-toastr": "^13.2.0",
+    "nodemailer": "^6.5.0",
+    "nodemon": "^2.0.7",
     "rxjs": "~6.5.4",
     "sweetalert2": "^10.14.0",
     "tslib": "^1.10.0",
@@ -61,5 +66,18 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juansanchez1990/PaginaRestaurante.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juansanchez1990/PaginaRestaurante/issues"
+  },
+  "homepage": "https://github.com/juansanchez1990/PaginaRestaurante#readme"
 }

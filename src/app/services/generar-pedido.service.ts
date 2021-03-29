@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, BehaviorSubject } from 'rxjs'
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class GenerarPedidoService {
   InfoPedido: any;
 
-  constructor(private afs: AngularFirestore) { 
+  constructor(private afs: AngularFirestore, private _http: HttpClient) { 
 
     this.InfoPedido= localStorage.getItem('PedidosPendientes');
     if (this.InfoPedido){
@@ -22,15 +23,20 @@ export class GenerarPedidoService {
  NumeroPedidos = new BehaviorSubject([]);
  IdPedido: any;
   registrarPedido(nuevoRegistro, Productos, Total) {
-    var id = this.afs.createId();
-    let pedido = {
-      id: id,
-      items: Productos,
-      Total,
-      infoCliente: nuevoRegistro,
-      PedidoProcesado: false
-    }
-    return this.afs.collection("registroPedidos").doc(id).ref.set(pedido);
+    
+
+
+   
+   
+        var id = this.afs.createId();
+        let pedido = {
+          id: id,
+          items: Productos,
+          Total,
+          infoCliente: nuevoRegistro,
+          PedidoProcesado: false
+        }
+        return this.afs.collection("registroPedidos").doc(id).ref.set(pedido);
 
    
   }
@@ -40,6 +46,9 @@ export class GenerarPedidoService {
    
       this.ListadoPedidos.next(data);
     })
+  }
+  sendMessage(body) {
+    return this._http.post('http://localhost:3000/formulario', body);
   }
 
   borrarItems(){

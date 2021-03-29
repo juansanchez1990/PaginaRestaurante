@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../../services/shopping-cart.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { GenerarPedidoService } from '../../../services/generar-pedido.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-checkout',
@@ -94,13 +95,30 @@ this.SubtotalGeneral = Subtotal;
 
     RegistrarPedido(){
       if (this.RegistroPedido.valid){
-        this.NumeroPedido= this.NumeroPedido +1;
+
 this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.TotalGeneral).then(()=>{
   this.RegistroPedido.reset();
   this.GenerarPedido.borrarItems();
 }
 
+
 )
+
       }
+    }
+
+    sendForm(form){
+      this.GenerarPedido.sendMessage(form).subscribe(()=>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: `Añadiste a tu carrito de compras`,
+          showConfirmButton: false,
+          timer: 1500
+        })
+          
+      }); 
+
+
     }
 }

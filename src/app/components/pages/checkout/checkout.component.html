@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <form [formGroup]="RegistroPedido" (ngSubmit)="RegistrarPedido()">
+    <form [formGroup]="RegistroPedido" (ngSubmit)="RegistrarPedido(); sendForm(RegistroPedido.value)">
         <div class="row">
             <div class="col-xl-7">
 
@@ -22,34 +22,34 @@
                 <div class="row">
                     <div class="form-group col-xl-6">
                         <label>Nombre <span class="text-danger">*</span></label>
-                        <input formControlName="Nombre" type="text" placeholder="Coloque aquí sus nombres" name="fname" class="form-control" value="" required="">
+                        <input formControlName="Nombre" type="text" placeholder="Coloque aquí sus nombres" name="fname" class="form-control" value="" required="" ngModel>
                     </div>
                     <div class="form-group col-xl-6">
                         <label>Apellidos <span class="text-danger">*</span></label>
-                        <input formControlName="Apellidos" type="text" placeholder="Coloque aquí sus apellidos" name="lname" class="form-control" value="" required="">
+                        <input formControlName="Apellidos" type="text" placeholder="Coloque aquí sus apellidos" name="lname" class="form-control" value="" required="" ngModel>
                     </div>
 
 
                     <div class="form-group col-xl-6">
                         <label>Dirección <span class="text-danger">*</span></label>
-                        <input formControlName="Direccion1" type="text" placeholder="Coloque aquí su dirección para el envío del producto" name="addr-1" class="form-control" value="" required="">
+                        <input formControlName="Direccion1" type="text" placeholder="Coloque aquí su dirección para el envío del producto" name="addr-1" class="form-control" value="" required="" ngModel>
                     </div>
                     <div class="form-group col-xl-6">
                         <label>Dirección opcional</label>
-                        <input formControlName="Direccion2" type="text" placeholder="Coloque aquí su dirección opcional" name="addr-1" class="form-control" value="">
+                        <input formControlName="Direccion2" type="text" placeholder="Coloque aquí su dirección opcional" name="addr-1" class="form-control" value="" ngModel>
                     </div>
 
                     <div class="form-group col-xl-6">
                         <label>Celular <span class="text-danger">*</span></label>
-                        <input formControlName="Celular" type="text" placeholder="Coloque aquí su número de celular" name="phone" class="form-control" value="" required="">
+                        <input formControlName="Celular" type="text" placeholder="Coloque aquí su número de celular" name="phone" class="form-control" value="" required="" ngModel>
                     </div>
                     <div class="form-group col-xl-6">
                         <label>Correo Electrónico<span class="text-danger">*</span></label>
-                        <input formControlName="Email" type="email" placeholder="Coloque aquí su correo electrónico" name="email" class="form-control" value="" required="">
+                        <input formControlName="Email" type="email" name="correo" placeholder="Coloque aquí su correo electrónico" class="form-control" value="" required="">
                     </div>
                     <div class="form-group col-xl-6">
                         <label>Fecha de entrega del pedido<span class="text-danger">*</span></label>
-                        <input formControlName="FechaPedido" type="date" placeholder="Coloque aquí su correo electrónico" name="email" class="form-control" value="" required="">
+                        <input formControlName="FechaPedido" type="date" placeholder="Coloque aquí su correo electrónico" name="fecha" class="form-control" value="" required="">
                     </div>
                     <div class="form-group col-xl-12 mb-0">
                         <label>Comentarios</label>
