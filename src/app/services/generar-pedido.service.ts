@@ -21,7 +21,7 @@ export class GenerarPedidoService {
  ListadoPedidos = new BehaviorSubject([]);
  NumeroPedidos = new BehaviorSubject([]);
  IdPedido: any;
-  registrarPedido(nuevoRegistro, Productos, Total, numeroPedido) {
+  registrarPedido(nuevoRegistro, Productos, Total) {
     var id = this.afs.createId();
     let pedido = {
       id: id,
@@ -30,7 +30,6 @@ export class GenerarPedidoService {
       infoCliente: nuevoRegistro,
       PedidoProcesado: false
     }
-    this.afs.collection("ContadorPedidos").doc().update(numeroPedido)
     return this.afs.collection("registroPedidos").doc(id).ref.set(pedido);
 
    

@@ -40,9 +40,7 @@ export class CheckoutComponent implements OnInit {
       Comentario: this.Comentario,
     });
 
-    this.GenerarPedido.NumeroPedidos.subscribe(data=>{
-this.NumeroPedido = data    })
-console.log("numero Pedido", this.NumeroPedido);
+    
   }
 
     getItems(){
@@ -97,7 +95,7 @@ this.SubtotalGeneral = Subtotal;
     RegistrarPedido(){
       if (this.RegistroPedido.valid){
         this.NumeroPedido= this.NumeroPedido +1;
-this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.TotalGeneral, this.NumeroPedido).then(()=>{
+this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.TotalGeneral).then(()=>{
   this.RegistroPedido.reset();
   this.GenerarPedido.borrarItems();
 }
