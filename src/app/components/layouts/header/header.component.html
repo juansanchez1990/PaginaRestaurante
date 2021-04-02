@@ -36,25 +36,20 @@
             <div class="container ">
                 <div class="top-header-inner d-flex flex-row bd-highlight mb-3 ">
 
-                    <div class="top-header-contacts ">
+                    <!-- <div class="top-header-contacts ">
                         <ul class="top-header-nav ">
                             <li> <a class="p-0 " routerLink='/login'><i class="fas fa-phone mr-2 "></i> +123 456 789</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
+
+
 
                     <ul class="top-header-nav header-cta ">
+
                         <li *ngIf="!IsLogged">
-                            <a routerLink='/login'> <i class="fas fa-user m-2"></i> INGRESE CON SU USUARIO </a>
+                            <button type="button" routerLink='/login' type="button" class="btn btn-danger  m-1">Ingrese con su usuario <i class="fas fa-user m-2"></i></button>
                         </li>
-                    </ul>
-                    <ul class="top-header-nav header-cta ">
-                        <li *ngIf="IsLogged">
-
-                            <a (click)="onLogout()" style=" cursor: pointer;"> <i class="fas fa-user-times m-2"></i> Cerrar Sesión </a>
-                        </li>
-                    </ul>
-                    <ul class="top-header-nav header-cta ">
                         <li *ngIf="IsLogged">
                             <!-- <a style=" cursor: pointer;"> <i class="fas fa-user m-2"></i>Bienvenido {{user?.email}} </a> -->
                             <div class="dropdown">
@@ -73,6 +68,10 @@
                                             <h5 style="color: white;">Admin <i class="fas fa-users-cog"></i>
                                             </h5>
                                         </a>
+                                        <a (click)="onLogout()" class="dropdown-item">
+                                            <h5 style="color: white;"> Cerrar Sesión <i class="fas fa-user-times"></i>
+                                            </h5>
+                                        </a>
 
                                     </div>
                                 </div>
@@ -80,6 +79,7 @@
 
                             </div>
                         </li>
+
                     </ul>
                 </div>
 

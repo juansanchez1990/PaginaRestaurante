@@ -25,7 +25,7 @@ export class CheckoutComponent implements OnInit {
   Items = [];
   Envio = 0;
   IdPedido: any;
-  NumeroPedido: any;
+  NumeroPedido: number;
   constructor(private shopCart: ShoppingCartService, private GenerarPedido: GenerarPedidoService) { }
 
   ngOnInit() {
@@ -41,7 +41,6 @@ export class CheckoutComponent implements OnInit {
       Comentario: this.Comentario,
     });
 
-    
   }
 
     getItems(){
@@ -50,7 +49,6 @@ export class CheckoutComponent implements OnInit {
       this.Items = data;
       
 
-     console.log('esta es la data',data);
 this.CalcularTotal();
 this.CalcularSubTotal();
     })

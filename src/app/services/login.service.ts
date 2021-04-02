@@ -44,7 +44,6 @@ export class LoginService {
         } else {
           this.isEmailVerifield$.next(true);
           this.startSession(user);
-          this.router.navigateByUrl('/home'); // poner nombre de ruta princila
         }
       }
 
@@ -78,7 +77,7 @@ export class LoginService {
             showConfirmButton: false,
             timer: 1500
           })
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/inicio');
 
         }).catch((error) => {
           Swal.fire({
