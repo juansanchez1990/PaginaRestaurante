@@ -106,7 +106,7 @@ this.GenerarPedido.registrarPedido(this.RegistroPedido.value, this.Items, this.T
     }
 
     sendForm(form){
-      this.GenerarPedido.sendMessage(form).subscribe(()=>{
+      this.GenerarPedido.sendMessagePedido(form).subscribe(()=>{
         Swal.fire({
           position: 'center',
           icon: 'success',

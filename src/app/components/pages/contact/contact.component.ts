@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { icon, latLng, marker, polyline, tileLayer } from 'leaflet';
+import Swal from 'sweetalert2';
+import { GenerarPedidoService } from '../../../services/generar-pedido.service';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -63,9 +65,24 @@ options = {
   scrollWheelZoom: false,
   center: latLng([ 51.5, -0.09 ])
 };
-  constructor() { }
+  constructor(private GenerarPedido: GenerarPedidoService) { }
 
   ngOnInit(): void {
+  }
+
+  sendForm(form){
+    this.GenerarPedido.sendMessage(form).subscribe(()=>{
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `Añadiste a tu carrito de compras`,
+        showConfirmButton: false,
+        timer: 1500
+      })
+        
+    }); 
+
+
   }
 
 }

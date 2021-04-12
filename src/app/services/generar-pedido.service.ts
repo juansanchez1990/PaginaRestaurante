@@ -50,6 +50,9 @@ export class GenerarPedidoService {
   sendMessage(body) {
     return this._http.post('http://localhost:3000/formulario', body);
   }
+  sendMessagePedido(body) {
+    return this._http.post('http://localhost:4000/formulario', body);
+  }
 
   borrarItems(){
     localStorage.removeItem('ShopCart');

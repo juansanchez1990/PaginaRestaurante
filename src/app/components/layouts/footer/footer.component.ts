@@ -11,5 +11,8 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  scrollTop() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Other
+  }
 }

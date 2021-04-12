@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <form [formGroup]="RegistroPedido" (ngSubmit)="RegistrarPedido(); sendForm(RegistroPedido.value)">
+    <form [formGroup]="RegistroPedido" (ngSubmit)="RegistrarPedido(); sendForm(form.value)" #form="ngForm">
         <div class="row">
             <div class="col-xl-7">
 
